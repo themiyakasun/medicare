@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "199148318823",
+    "project_id": "medicare-6f594",
+    "storage_bucket": "medicare-6f594.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199148318823:android:c0712251b0483b81ada4c2",
+        "android_client_info": {
+          "package_name": "com.example.medicare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnmMywLtLksE5f-p30kzQaqFfAaVPW3IE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
