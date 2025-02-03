@@ -21,4 +21,9 @@ class TAppTheme {
     appBarTheme: TAppBarTheme.appBarTheme,
     checkboxTheme: TCheckboxTheme.orangeCheckBoxTheme,
   );
+
+  static ElevatedButtonThemeData get patientElevatedButtonTheme =>
+      TElevatedButtonTheme.patientElevatedButtonTheme;
+  static ElevatedButtonThemeData get doctorElevatedButtonTheme =>
+      TElevatedButtonTheme.doctorElevatedButtonTheme;
 }

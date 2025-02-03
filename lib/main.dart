@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
+import 'package:medicare/features/authentication/screen/onboarding/onboarding.dart';
 import 'package:medicare/utils/theme/theme.dart';
 import 'firebase_options.dart';
 
@@ -17,9 +19,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: TAppTheme.theme,
+      home: OnBoardingScreen(),
     );
   }
 }
