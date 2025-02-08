@@ -11,132 +11,186 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight),
-              child: Padding(
-                padding: TSpacingStyle.paddingWithAppBarHeight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image(
-                              image: AssetImage(TImages.logo),
-                              height: 150,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: TSizes.twoxl),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'Login',
-                            style: Theme.of(context).textTheme.titleMedium,
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-
-                        //form
-                        Form(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: TSizes.spaceBtwItems),
-                            child: Column(
-                              children: [
-                                //Email
-                                TextFormField(
-                                  decoration:
-                                      const InputDecoration(labelText: 'Email'),
-                                ),
-                                const SizedBox(height: TSizes.spaceBtwItems),
-
-                                //Password
-                                TextFormField(
-                                  decoration: const InputDecoration(
-                                      labelText: 'Password',
-                                      suffixIcon: Icon(Icons.visibility)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Checkbox(
-                                            value: true, onChanged: (value) {}),
-                                        const Text('Remember me')
-                                      ],
-                                    ),
-                                    TextButton(
-                                        onPressed: () {},
-                                        child: const Text(
-                                          'Forget password?',
-                                          style: TextStyle(
-                                              fontFamily: 'Manrope',
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                              color: TColors.coolOrange),
-                                        ))
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: TSizes.md),
-                      child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style:
-                                      TAppTheme.doctorElevatedButtonTheme.style,
-                                  onPressed: () {},
-                                  child: const Text('Login'),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'New Here ?',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: TColors.darkPurple),
-                                  ),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Create Account',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                            color: TColors.coolOrange),
-                                      ))
-                                ],
-                              )
-                            ],
-                          )),
-                    ),
-                  ],
-                ),
-              ),
+        body: SingleChildScrollView(
+      child: Padding(
+        padding: TSpacingStyle.paddingWithAppBarHeight,
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image(
+                  image: AssetImage(TImages.logo),
+                  height: 150,
+                )
+              ],
             ),
-          );
-        },
+
+            Align(
+                alignment: Alignment.topLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Welcome',
+                      style: Theme.of(context).textTheme.titleMedium,
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                        width: 278,
+                        child: Text(
+                          'Please put your information below to sign in to your account',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ))
+                  ],
+                )),
+
+            //Form
+            Form(
+                child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: TSizes.spaceBtwItems),
+              child: Column(
+                children: [
+                  //Email
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: 'Email'),
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+
+                  //Password
+                  TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Password',
+                        suffixIcon: Icon(Icons.visibility)),
+                  ),
+
+                  //Remember me & Forget Password
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //Remember me
+                      Row(
+                        children: [
+                          Theme(
+                            data: ThemeData(
+                              checkboxTheme: TAppTheme.darkPurpleCheckBoxTheme,
+                            ),
+                            child: Checkbox(
+                              value: true,
+                              onChanged: (value) {},
+                            ),
+                          ),
+                          const Text('Remember me')
+                        ],
+                      ),
+
+                      //Forget Password
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text('Forget password?',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: TColors.neutralsGray2)))
+                    ],
+                  ),
+
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+
+                  //Sign in Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        onPressed: () {}, child: Text('Sign In')),
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have an account?",
+                          style: Theme.of(context).textTheme.bodyLarge),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Sign Up',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: TColors.coolOrange),
+                          ))
+                    ],
+                  )
+                ],
+              ),
+            )),
+
+            //Divider
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                    child: Divider(
+                  color: TColors.neutralsGray1,
+                  thickness: 0.5,
+                  indent: 0,
+                  endIndent: 5,
+                )),
+                Text('Or Sign in with',
+                    style: Theme.of(context).textTheme.bodyLarge),
+                Flexible(
+                    child: Divider(
+                  color: TColors.neutralsGray1,
+                  thickness: 0.5,
+                  indent: 5,
+                  endIndent: 0,
+                )),
+              ],
+            ),
+
+            const SizedBox(
+              height: TSizes.spaceBtwSections,
+            ),
+            //Footer
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(TSizes.md),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: TColors.neutralsGray5),
+                      borderRadius: BorderRadius.circular(8)),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Image(
+                          width: TSizes.lg,
+                          height: TSizes.lg,
+                          image: AssetImage(TImages.google))),
+                ),
+                const SizedBox(
+                  width: TSizes.sm,
+                ),
+                Container(
+                  padding: EdgeInsets.all(TSizes.md),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: TColors.neutralsGray5),
+                      borderRadius: BorderRadius.circular(TSizes.sm)),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Image(
+                          width: TSizes.lg,
+                          height: TSizes.lg,
+                          image: AssetImage(TImages.facebook))),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
-    );
+    ));
   }
 }
