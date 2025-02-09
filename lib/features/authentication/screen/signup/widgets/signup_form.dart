@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medicare/features/authentication/screen/login/login.dart';
+import 'package:medicare/features/authentication/screen/signup/verify_email.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 
@@ -42,8 +43,9 @@ class TSignupForm extends StatelessWidget {
           //Sign in Button
           SizedBox(
             width: double.infinity,
-            child:
-                ElevatedButton(onPressed: () {}, child: Text('Create Account')),
+            child: ElevatedButton(
+                onPressed: () => Get.to(() => const VerifyEmailScreen()),
+                child: Text('Create Account')),
           ),
 
           Row(
