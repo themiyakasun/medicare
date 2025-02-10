@@ -11,4 +11,10 @@ class TImages {
   static const String eclipe1 = 'assets/images/on-board/image-2.png';
   static const String eclipe2 = 'assets/images/on-board/image-3.png';
   static const String eclipe3 = 'assets/images/on-board/image-4.png';
+
+  //Navigation Menu
+  static const String grid = 'assets/icons/grid.png';
+  static const String appointment = 'assets/icons/appointments.png';
+  static const String search = 'assets/icons/search.png';
+  static const String menu = 'assets/icons/menu.png';
 }

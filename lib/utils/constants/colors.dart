@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TColors {
   TColors._();
   static const Color darkPurple = Color(0xFF240046);
+  static const Color dartPurpleNeutral = Color(0xFF30005E);
   static const Color coolOrange = Color(0xFFFF7900);
   static const Color coolBlue = Color(0xFF92D3FF);
   static const Color neutralsDark = Color(0xFF18273B);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medicare/features/authentication/screen/password_recovery/password_recovery.dart';
 import 'package:medicare/features/authentication/screen/signup/signup.dart';
+import 'package:medicare/navigation_menu.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/theme.dart';
@@ -59,7 +61,7 @@ class TLoginForm extends StatelessWidget {
 
               //Forget Password
               TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => PasswordRecoveryScreen()),
                   child: const Text('Forget password?',
                       style: TextStyle(
                           fontSize: 14,
@@ -75,7 +77,9 @@ class TLoginForm extends StatelessWidget {
           //Sign in Button
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(onPressed: () {}, child: Text('Sign In')),
+            child: ElevatedButton(
+                onPressed: () => Get.to(() => const NavigationMenu()),
+                child: Text('Sign In')),
           ),
 
           Row(
