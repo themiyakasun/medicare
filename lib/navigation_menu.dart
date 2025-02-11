@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/features/patient/screens/appointments/appointments.dart';
 import 'package:medicare/features/patient/screens/dashboard/dashboard.dart';
+import 'package:medicare/features/patient/screens/menu/menu.dart';
+import 'package:medicare/features/patient/screens/search/search.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
@@ -16,9 +19,9 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
   final List<Widget> _screens = [
     const PatientDashboardScreen(),
-    const AppointmentsScreen(),
-    const SearchScreen(),
-    const MenuScreen(),
+    const PatientAppointmentsScreen(),
+    const PatientSearchScreen(),
+    const PatientMenuScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -114,32 +117,5 @@ class _NavigationMenuState extends State<NavigationMenu> {
         ),
       ),
     );
-  }
-}
-
-class AppointmentsScreen extends StatelessWidget {
-  const AppointmentsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Appointments Screen'));
-  }
-}
-
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Search Screen'));
-  }
-}
-
-class MenuScreen extends StatelessWidget {
-  const MenuScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Menu Screen'));
   }
 }

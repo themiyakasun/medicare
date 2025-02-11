@@ -19,4 +19,8 @@ class TDeviceUtils {
   static void hideStatusBar() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   }
+
+  static double getAppBarHeight() {
+    return kToolbarHeight;
+  }
 }
