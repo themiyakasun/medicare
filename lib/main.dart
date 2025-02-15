@@ -20,6 +20,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: TAppTheme.theme,
       home: OnBoardingScreen(),
