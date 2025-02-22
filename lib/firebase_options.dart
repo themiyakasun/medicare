@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '199148318823',
     projectId: 'medicare-6f594',
     storageBucket: 'medicare-6f594.firebasestorage.app',
+    androidClientId: '199148318823-pk90k1gbppf2cga9hinlj2u4fe6o3okn.apps.googleusercontent.com',
+    iosClientId: '199148318823-4mcrhbuigcfu4fcvcag8bo3fsov2j2ol.apps.googleusercontent.com',
     iosBundleId: 'com.example.medicare',
   );
 
@@ -72,6 +74,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '199148318823',
     projectId: 'medicare-6f594',
     storageBucket: 'medicare-6f594.firebasestorage.app',
+    androidClientId: '199148318823-pk90k1gbppf2cga9hinlj2u4fe6o3okn.apps.googleusercontent.com',
+    iosClientId: '199148318823-4mcrhbuigcfu4fcvcag8bo3fsov2j2ol.apps.googleusercontent.com',
     iosBundleId: 'com.example.medicare',
   );
 

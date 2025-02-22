@@ -17,4 +17,9 @@ class TImages {
   static const String appointment = 'assets/icons/appointments.png';
   static const String search = 'assets/icons/search.png';
   static const String menu = 'assets/icons/menu.png';
+
+  //Animations
+  static const String infoProcessing =
+      'assets/images/animations/infoprocessing.gif';
+  static const String processing = 'assets/images/animations/processing.json';
 }
