@@ -2,22 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medicare/common/styles/spacing_styles.dart';
-import 'package:medicare/features/authentication/screen/login/login.dart';
+import 'package:medicare/data/repositories/authentication/authentication_repository.dart';
+import 'package:medicare/features/authentication/controller/signup/verify_email_controller.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => LoginScreen()),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
         title: Row(
@@ -44,7 +49,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                'support@gmail.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.titleSmall,
                 textAlign: TextAlign.center,
               ),
@@ -62,12 +67,13 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text('Continue')),
+                    onPressed: () => controller.checkEmailVerificationStatus(),
+                    child: const Text('Continue')),
               ),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => controller.sendEmailVerification(),
                     child: Text(
                       'Resend Email',
                       style: TextStyle(color: TColors.neutralsDark),

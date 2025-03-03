@@ -22,4 +22,9 @@ class TImages {
   static const String infoProcessing =
       'assets/images/animations/infoprocessing.gif';
   static const String processing = 'assets/images/animations/processing.json';
+  static const String successAnimation =
+      'assets/images/animations/success.json';
+
+  //Icons
+  static const String success = 'assets/icons/success.png';
 }
