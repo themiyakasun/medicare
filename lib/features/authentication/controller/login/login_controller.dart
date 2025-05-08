@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart';
 import 'package:medicare/common/widgets/loaders.dart';
 import 'package:medicare/data/repositories/authentication/authentication_repository.dart';
+import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/utils/helpers/network_manager.dart';
 import 'package:medicare/utils/popups/full_screen_loader.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
@@ -14,6 +17,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   // @override
   // void onInit() {
@@ -40,6 +44,31 @@ class LoginController extends GetxController {
 
       final userCredential = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+
+      TFullScreenLoader.stopLoading();
+
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
+
+  Future<void> googleSignIn() async {
+    try {
+      TFullScreenLoader.openLoadingDialog(
+          'Logging you in...', TImages.processing);
+
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      await userController.saveUserRecord(userCredentials);
 
       TFullScreenLoader.stopLoading();
 

@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/heezi/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/heezi/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/heezi/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
