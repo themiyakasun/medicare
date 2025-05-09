@@ -30,4 +30,7 @@ class TImages {
 
   //Dummy Images
   static const String userImg = 'assets/images/user.png';
+
+  //BG
+  static const String mainBg = 'assets/images/main-bg.png';
 }

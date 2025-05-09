@@ -25,7 +25,7 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
     final appBarHeight = TDeviceUtils.getAppBarHeight();
 
     return Padding(
-        padding: EdgeInsets.all(TSizes.gridViewSpacing),
+        padding: EdgeInsets.symmetric(horizontal: TSizes.gridViewSpacing),
         child: AppBar(
           automaticallyImplyLeading: false,
           systemOverlayStyle:
