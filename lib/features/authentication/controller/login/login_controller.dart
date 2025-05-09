@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:medicare/common/widgets/loaders.dart';
 import 'package:medicare/data/repositories/authentication/authentication_repository.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
+import 'package:medicare/utils/constants/enums.dart';
 import 'package:medicare/utils/helpers/network_manager.dart';
 import 'package:medicare/utils/popups/full_screen_loader.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
@@ -68,7 +69,7 @@ class LoginController extends GetxController {
       final userCredentials =
           await AuthenticationRepository.instance.signInWithGoogle();
 
-      await userController.saveUserRecord(userCredentials);
+      await userController.saveUserRecord(userCredentials, AppRole.patient);
 
       TFullScreenLoader.stopLoading();
 

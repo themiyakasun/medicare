@@ -27,4 +27,7 @@ class TImages {
 
   //Icons
   static const String success = 'assets/icons/success.png';
+
+  //Dummy Images
+  static const String userImg = 'assets/images/user.png';
 }

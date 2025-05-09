@@ -24,27 +24,30 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final appBarHeight = TDeviceUtils.getAppBarHeight();
 
-    return AppBar(
-      automaticallyImplyLeading: false,
-      systemOverlayStyle:
-          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
-      leading: showBackArrow
-          ? IconButton(
-              onPressed: () => Get.back(),
-              icon: Container(
-                width: appBarHeight,
-                height: TSizes.xl,
-                decoration: BoxDecoration(color: TColors.orangeRange),
-                child: Icon(Icons.arrow_back),
-              ),
-              padding: EdgeInsets.zero,
-            )
-          : leadingIcon != null
-              ? IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon))
-              : null,
-      title: title,
-      actions: actions,
-    );
+    return Padding(
+        padding: EdgeInsets.all(TSizes.gridViewSpacing),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          systemOverlayStyle:
+              SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+          leading: showBackArrow
+              ? IconButton(
+                  onPressed: () => Get.back(),
+                  icon: Container(
+                    width: appBarHeight,
+                    height: TSizes.xl,
+                    decoration: BoxDecoration(color: TColors.orangeRange),
+                    child: Icon(Icons.arrow_back),
+                  ),
+                  padding: EdgeInsets.zero,
+                )
+              : leadingIcon != null
+                  ? IconButton(
+                      onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+                  : null,
+          title: title,
+          actions: actions,
+        ));
   }
 
   @override

@@ -5,6 +5,7 @@ import 'package:medicare/data/repositories/authentication/authentication_reposit
 import 'package:medicare/data/repositories/user/user_repository.dart';
 import 'package:medicare/features/authentication/screen/signup/verify_email.dart';
 import 'package:medicare/features/personalization/models/user_model.dart';
+import 'package:medicare/utils/constants/enums.dart';
 import 'package:medicare/utils/helpers/network_manager.dart';
 import 'package:medicare/utils/popups/full_screen_loader.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
@@ -44,7 +45,9 @@ class SignupController extends GetxController {
           name: name.text.trim(),
           email: email.text.trim(),
           phoneNumber: '',
-          profilePicture: '');
+          profilePicture: '',
+          role: AppRole.patient,
+          createdAt: DateTime.now());
 
       final userRepository = Get.put(UserRepository());
 
@@ -60,6 +63,7 @@ class SignupController extends GetxController {
             email: email.text.trim(),
           ));
     } catch (e) {
+      TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
       TFullScreenLoader.stopLoading();
