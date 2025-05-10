@@ -22,8 +22,6 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appBarHeight = TDeviceUtils.getAppBarHeight();
-
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: TSizes.gridViewSpacing),
         child: AppBar(
@@ -34,9 +32,11 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? IconButton(
                   onPressed: () => Get.back(),
                   icon: Container(
-                    width: appBarHeight,
+                    width: TSizes.xl,
                     height: TSizes.xl,
-                    decoration: BoxDecoration(color: TColors.orangeRange),
+                    decoration: BoxDecoration(
+                        color: TColors.orangeRange,
+                        borderRadius: BorderRadius.circular(TSizes.sm)),
                     child: Icon(Icons.arrow_back),
                   ),
                   padding: EdgeInsets.zero,
