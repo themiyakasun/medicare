@@ -33,4 +33,7 @@ class TImages {
 
   //BG
   static const String mainBg = 'assets/images/main-bg.png';
+
+  //Doctors
+  static const String doctor1 = 'assets/images/doctor-1.png';
 }

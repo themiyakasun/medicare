@@ -7,6 +7,7 @@ class TColors {
   static const Color coolOrange = Color(0xFFFF7900);
   static const Color orangeRange = Color(0xFFFFF5E5);
   static const Color coolBlue = Color(0xFF92D3FF);
+  static const Color coolBlueNeutral = Color(0xFFDEF2FF);
   static const Color neutralsDark = Color(0xFF18273B);
   static const Color neutralsGray1 = Color(0xFF525A66);
   static const Color neutralsGray2 = Color(0xFF838A93);
@@ -16,4 +17,5 @@ class TColors {
   static const Color neutralsGray6 = Color(0xFFF5F5F5);
   static const Color neutralsWhite = Color(0xFFFFFFFF);
   static const Color warning = Color(0xFFB3261E);
+  static const Color pink = Color(0xFFFFEAE5);
 }
