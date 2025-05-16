@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/containers/primary_header_container.dart';
 import 'package:medicare/features/authentication/screen/dashboard/widgets/top_doctors_slider.dart';
+import 'package:medicare/features/patient/screens/search/search.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
@@ -20,63 +22,64 @@ class PatientDashboardScreen extends StatelessWidget {
       child: Column(
         children: [
           TPrimaryHeaderContainer(
+              height: 250,
               child: Column(
-            children: [
-              TAppBar(
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hey, ${THelperFunctions.capitalize(controller.user.value.name)}!',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .apply(color: TColors.neutralsWhite),
-                    )
-                  ],
-                ),
-                showBackArrow: false,
-                actions: [
-                  Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          // Your action here
-                        },
-                        child: Container(
-                          width: 32,
-                          height: 32,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.notifications_none,
-                              size: 24,
-                              color: TColors.neutralsDark,
+                children: [
+                  TAppBar(
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hey, ${THelperFunctions.capitalize(controller.user.value.name)}!',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .apply(color: TColors.neutralsWhite),
+                        )
+                      ],
+                    ),
+                    showBackArrow: false,
+                    actions: [
+                      Stack(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              // Your action here
+                            },
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.notifications_none,
+                                  size: 24,
+                                  color: TColors.neutralsDark,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 7,
-                        right: 8,
-                        child: Container(
-                          width: 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            color: TColors.coolOrange,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
+                          Positioned(
+                            top: 7,
+                            right: 8,
+                            child: Container(
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: TColors.coolOrange,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          )
+                        ],
                       )
                     ],
                   )
                 ],
-              )
-            ],
-          )),
+              )),
           Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
@@ -92,7 +95,8 @@ class PatientDashboardScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleSmall!,
                         ),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () =>
+                                Get.to(() => const PatientSearchScreen()),
                             child: Text(
                               'See all',
                               style: Theme.of(context)

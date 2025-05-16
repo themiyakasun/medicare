@@ -9,4 +9,10 @@ class THelperFunctions {
     if (text.isEmpty) return text;
     return text[0].toUpperCase() + text.substring(1);
   }
+
+  static List<DateTime> getDatesToEndOfWeek() {
+    final today = DateTime.now();
+    final daysToAdd = DateTime.saturday - today.weekday;
+    return List.generate(daysToAdd + 1, (i) => today.add(Duration(days: i)));
+  }
 }

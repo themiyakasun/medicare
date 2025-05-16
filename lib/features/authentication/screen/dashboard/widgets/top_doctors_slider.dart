@@ -11,7 +11,9 @@ class TTopDoctorsSlider extends StatelessWidget {
         items: [
           Container(
             margin: const EdgeInsets.only(bottom: 12),
-            child: TBookAppointmentCard(),
+            child: TBookAppointmentCard(
+              width: 300,
+            ),
           )
         ],
         options: CarouselOptions(

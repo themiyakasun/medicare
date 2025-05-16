@@ -36,4 +36,5 @@ class TImages {
 
   //Doctors
   static const String doctor1 = 'assets/images/doctor-1.png';
+  static const String doctor2 = 'assets/images/doctor-2.png';
 }

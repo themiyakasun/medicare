@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/common/widgets/appbar.dart';
+import 'package:medicare/common/widgets/cards/book_appointment_card.dart';
 import 'package:medicare/common/widgets/containers/search_container.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
@@ -48,6 +49,13 @@ class PatientSearchScreen extends StatelessWidget {
                   ),
                 )
               ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(TSizes.gridViewSpacing),
+            child: Column(
+              spacing: TSizes.sm,
+              children: [TBookAppointmentCard(), TBookAppointmentCard()],
             ),
           )
         ],

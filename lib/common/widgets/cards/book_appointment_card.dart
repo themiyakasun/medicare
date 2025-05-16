@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:medicare/common/widgets/cards/rating_card.dart';
+import 'package:medicare/features/authentication/screen/book_appointment_details/book_appointment_details.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 
 class TBookAppointmentCard extends StatelessWidget {
-  const TBookAppointmentCard({super.key});
+  const TBookAppointmentCard({super.key, this.width});
+
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 200,
+      width: width ?? MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -45,29 +50,7 @@ class TBookAppointmentCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: TColors.orangeRange,
-                          borderRadius: BorderRadius.circular(TSizes.sm),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: TSizes.sm, vertical: TSizes.xs),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.favorite,
-                                color: Color(0xFFD42900), size: TSizes.md),
-                            SizedBox(width: 4),
-                            Text(
-                              '4.9',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .apply(color: Color(0xFFD42900)),
-                            ),
-                          ],
-                        ),
-                      ),
+                      TRatingCard(),
                       const SizedBox(height: 6),
                       Text(
                         'Dr. Abram George',
@@ -84,6 +67,28 @@ class TBookAppointmentCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                TextButton(
+                    style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size(0, 0),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Text(
+                          'Details',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .apply(color: TColors.coolOrange),
+                        ),
+                        Icon(
+                          Icons.chevron_right,
+                          size: TSizes.md,
+                          color: TColors.coolOrange,
+                        )
+                      ],
+                    ))
               ],
             ),
             const SizedBox(height: 16),
@@ -138,7 +143,7 @@ class TBookAppointmentCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall!,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => BookAppointmentDetailsScreen()),
                   style: TElevatedButtonTheme.patientElevatedButtonTheme.style,
                   child: const Text('Book Appointment'),
                 ),
