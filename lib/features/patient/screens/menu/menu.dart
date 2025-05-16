@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/list_styles/menu_tile.dart';
 import 'package:medicare/data/repositories/authentication/authentication_repository.dart';

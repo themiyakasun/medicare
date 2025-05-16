@@ -3,7 +3,6 @@ import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/containers/search_container.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
-import 'package:medicare/utils/device/device_utility.dart';
 
 class PatientSearchScreen extends StatelessWidget {
   const PatientSearchScreen({super.key});

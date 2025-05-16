@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:medicare/features/authentication/controller/login/login_controller.dart';
 import 'package:medicare/features/authentication/screen/password_recovery/password_recovery.dart';
 import 'package:medicare/features/authentication/screen/signup/signup.dart';
-import 'package:medicare/navigation_menu.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/theme.dart';

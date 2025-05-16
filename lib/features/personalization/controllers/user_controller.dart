@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:medicare/common/widgets/loaders.dart';
 import 'package:medicare/data/repositories/user/user_repository.dart';
 import 'package:medicare/features/personalization/models/user_model.dart';

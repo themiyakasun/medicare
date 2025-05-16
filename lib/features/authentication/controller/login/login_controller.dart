@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:http/http.dart';
 import 'package:medicare/common/widgets/loaders.dart';
 import 'package:medicare/data/repositories/authentication/authentication_repository.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
