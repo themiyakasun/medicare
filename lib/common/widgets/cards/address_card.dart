@@ -15,6 +15,7 @@ class TAddressCard extends StatelessWidget {
           vertical: TSizes.sm, horizontal: TSizes.xs),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.location_on, color: TColors.royalBlue, size: TSizes.md),
           Text(

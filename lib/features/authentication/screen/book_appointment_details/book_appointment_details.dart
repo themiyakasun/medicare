@@ -4,7 +4,9 @@ import 'package:medicare/common/widgets/cards/address_card.dart';
 import 'package:medicare/common/widgets/cards/rating_card.dart';
 import 'package:medicare/common/widgets/containers/primary_header_container.dart';
 import 'package:medicare/common/widgets/expandable_text.dart';
+import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/book_appointment_form.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/date_pick_slider.dart';
+import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/time_pick_slider.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
@@ -230,29 +232,9 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.xs,
                   ),
-                  GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: TColors.neutralsGray6,
-                          borderRadius: BorderRadius.circular(TSizes.sm)),
-                      padding: EdgeInsets.symmetric(
-                          vertical: TSizes.lg, horizontal: 0),
-                      width: 110,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '9.00 am',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .apply(fontWeightDelta: 500),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ])
+                  TTimePickSlider(),
+                ]),
+                TBookAppointmentForm()
               ],
             ),
           )

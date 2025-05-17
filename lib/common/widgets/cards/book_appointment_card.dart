@@ -9,9 +9,10 @@ import 'package:medicare/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 
 class TBookAppointmentCard extends StatelessWidget {
-  const TBookAppointmentCard({super.key, this.width});
+  const TBookAppointmentCard({super.key, this.width, this.showBooking = true});
 
   final double? width;
+  final bool showBooking;
 
   @override
   Widget build(BuildContext context) {
@@ -67,28 +68,30 @@ class TBookAppointmentCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                TextButton(
-                    style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: Size(0, 0),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Text(
-                          'Details',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .apply(color: TColors.coolOrange),
-                        ),
-                        Icon(
-                          Icons.chevron_right,
-                          size: TSizes.md,
-                          color: TColors.coolOrange,
-                        )
-                      ],
-                    ))
+                showBooking
+                    ? TextButton(
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            minimumSize: Size(0, 0),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                        onPressed: () {},
+                        child: Row(
+                          children: [
+                            Text(
+                              'Details',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .apply(color: TColors.coolOrange),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: TSizes.md,
+                              color: TColors.coolOrange,
+                            )
+                          ],
+                        ))
+                    : const SizedBox.shrink()
               ],
             ),
             const SizedBox(height: 16),
@@ -135,20 +138,24 @@ class TBookAppointmentCard extends StatelessWidget {
             const SizedBox(height: 12),
 
             // Price and Button Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '\$100 / session',
-                  style: Theme.of(context).textTheme.titleSmall!,
-                ),
-                ElevatedButton(
-                  onPressed: () => Get.to(() => BookAppointmentDetailsScreen()),
-                  style: TElevatedButtonTheme.patientElevatedButtonTheme.style,
-                  child: const Text('Book Appointment'),
-                ),
-              ],
-            ),
+            showBooking
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '\$100 / session',
+                        style: Theme.of(context).textTheme.titleSmall!,
+                      ),
+                      ElevatedButton(
+                        onPressed: () =>
+                            Get.to(() => BookAppointmentDetailsScreen()),
+                        style: TElevatedButtonTheme
+                            .patientElevatedButtonTheme.style,
+                        child: const Text('Book Appointment'),
+                      ),
+                    ],
+                  )
+                : const SizedBox.shrink()
           ],
         ),
       ),

@@ -6,6 +6,7 @@ class TColors {
   static const Color lightPurple = Color(0xFFF3EAFF);
   static const Color dartPurpleNeutral = Color(0xFF30005E);
   static const Color coolOrange = Color(0xFFFF7900);
+  static const Color orange30 = Color(0xFFFFE2B3);
   static const Color orangeRange = Color(0xFFFFF5E5);
   static const Color coolBlue = Color(0xFF92D3FF);
   static const Color coolBlueNeutral = Color(0xFFDEF2FF);
