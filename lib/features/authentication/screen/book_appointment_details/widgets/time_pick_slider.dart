@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:medicare/common/widgets/cards/time_pick_card.dart';
 
 class TTimePickSlider extends StatefulWidget {

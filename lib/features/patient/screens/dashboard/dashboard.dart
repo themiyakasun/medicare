@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/containers/primary_header_container.dart';
 import 'package:medicare/features/authentication/screen/dashboard/widgets/top_doctors_slider.dart';

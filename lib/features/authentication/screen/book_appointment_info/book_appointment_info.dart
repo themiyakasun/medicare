@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/cards/book_appointment_card.dart';
 import 'package:medicare/common/widgets/cards/payment_info_card.dart';
-import 'package:medicare/features/authentication/screen/book_appointment_info/widgets/appointment_type_button.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_info/widgets/appointment_type_select.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 

@@ -26,6 +26,14 @@ class UserController extends GetxController {
     }
   }
 
+  Future<UserModel> fetchUserById(String userId) async {
+    try {
+      return await userRepository.fetchUserDetailsById(userId);
+    } catch (e) {
+      return UserModel.empty();
+    }
+  }
+
   Future<void> saveUserRecord(
       UserCredential? userCredentials, AppRole? role) async {
     try {

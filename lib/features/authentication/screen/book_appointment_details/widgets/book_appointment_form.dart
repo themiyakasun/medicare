@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_info/book_appointment_info.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 

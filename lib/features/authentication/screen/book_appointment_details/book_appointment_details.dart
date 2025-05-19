@@ -82,7 +82,9 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: TSizes.sm,
                                 ),
-                                TRatingCard()
+                                TRatingCard(
+                                  doctorId: '',
+                                )
                               ],
                             ))
                           ],
