@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
-import 'package:get/utils.dart';
 import 'package:medicare/features/authentication/controller/login/login_controller.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
