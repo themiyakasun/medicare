@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:medicare/common/widgets/cards/rating_card.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_details/book_appointment_details.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
+import 'package:medicare/features/personalization/models/doctor_model.dart';
 import 'package:medicare/features/personalization/models/user_model.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
@@ -13,14 +14,14 @@ class TDoctorsDetails extends StatelessWidget {
   final String userId;
   final String speciality;
   final bool showBooking;
-  final String doctorId;
+  final DoctorModel doctor;
 
   const TDoctorsDetails(
       {super.key,
       required this.userId,
       required this.speciality,
       required this.showBooking,
-      required this.doctorId});
+      required this.doctor});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class TDoctorsDetails extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TRatingCard(
-                          doctorId: doctorId,
+                          doctorId: doctor.id,
                         ),
                         const SizedBox(height: 6),
                         Text(
@@ -169,7 +170,10 @@ class TDoctorsDetails extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () =>
-                              Get.to(() => BookAppointmentDetailsScreen()),
+                              Get.to(() => BookAppointmentDetailsScreen(
+                                    doctor: doctor,
+                                    user: user,
+                                  )),
                           style: TElevatedButtonTheme
                               .patientElevatedButtonTheme.style,
                           child: const Text('Book Appointment'),

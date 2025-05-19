@@ -7,12 +7,18 @@ import 'package:medicare/common/widgets/expandable_text.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/book_appointment_form.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/date_pick_slider.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_details/widgets/time_pick_slider.dart';
+import 'package:medicare/features/personalization/models/doctor_model.dart';
+import 'package:medicare/features/personalization/models/user_model.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 
 class BookAppointmentDetailsScreen extends StatelessWidget {
-  const BookAppointmentDetailsScreen({super.key});
+  final DoctorModel doctor;
+  final UserModel user;
+
+  const BookAppointmentDetailsScreen(
+      {super.key, required this.doctor, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +54,19 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(TSizes.sm),
-                              child: Image.asset(
-                                TImages.doctor2,
-                                width: 120,
-                                height: 140,
-                                fit: BoxFit.cover,
-                              ),
+                              child: user.profilePicture != ""
+                                  ? Image.network(
+                                      user.profilePicture,
+                                      width: 120,
+                                      height: 140,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Image.asset(
+                                      TImages.doctor2,
+                                      width: 120,
+                                      height: 140,
+                                      fit: BoxFit.cover,
+                                    ),
                             ),
                             Expanded(
                                 child: Column(
@@ -61,15 +74,17 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                               children: [
                                 const SizedBox(height: 6),
                                 Text(
-                                  'Dr. Abram George',
+                                  'Dr. ${user.name}',
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleSmall!
-                                      .apply(color: TColors.neutralsWhite),
+                                      .apply(
+                                        color: TColors.neutralsWhite,
+                                      ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  'General Physician',
+                                  doctor.speciality,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -83,7 +98,7 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                                   height: TSizes.sm,
                                 ),
                                 TRatingCard(
-                                  doctorId: '',
+                                  doctorId: doctor.id,
                                 )
                               ],
                             ))
@@ -134,7 +149,7 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              '12',
+                              '${doctor.experience}',
                               style: TextStyle(
                                   color: TColors.neutralsDark,
                                   fontSize: 20,
@@ -203,7 +218,7 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                       height: TSizes.xs,
                     ),
                     TExpandableText(
-                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, ... more',
+                      doctor.bio,
                     ),
                   ],
                 ),

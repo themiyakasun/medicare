@@ -31,7 +31,7 @@ class TBookAppointmentCard extends StatelessWidget {
               userId: doctor?.user.id ?? '',
               speciality: doctor?.speciality ?? '',
               showBooking: showBooking,
-              doctorId: doctor?.id ?? '')),
+              doctor: doctor!)),
     );
   }
 }
