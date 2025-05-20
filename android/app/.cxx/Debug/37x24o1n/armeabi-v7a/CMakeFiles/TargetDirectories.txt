@@ -1,0 +1,2 @@
+D:/Project/medicare/android/app/.cxx/Debug/37x24o1n/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Project/medicare/android/app/.cxx/Debug/37x24o1n/armeabi-v7a/CMakeFiles/rebuild_cache.dir
