@@ -6,6 +6,7 @@ import 'package:medicare/data/repositories/authentication/authentication_reposit
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/features/personalization/screens/account_settings/account_settings.dart';
 import 'package:medicare/features/personalization/screens/change_password/change_password.dart';
+import 'package:medicare/features/personalization/screens/video_call/call_feedback.dart';
 import 'package:medicare/features/personalization/screens/wallet/wallet.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
@@ -90,6 +91,10 @@ class PatientMenuScreen extends StatelessWidget {
                     icon: Icons.file_copy,
                     title: 'Terms & Conditions',
                     onPressed: () => {}),
+                TMenuTile(
+                    icon: Icons.video_call,
+                    title: 'Video Call Feedback',
+                    onPressed: () => Get.to(() => CallFeedbackScreen())),
                 TMenuTile(
                     icon: Icons.newspaper,
                     title: 'News & Blogs',
