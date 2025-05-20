@@ -157,17 +157,21 @@ class TDoctorsDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
 
               // Price and Button Row
               showBooking
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '\$100 / session',
-                          style: Theme.of(context).textTheme.titleSmall!,
+                        Flexible(
+                          child: Text(
+                            '\$100 / session',
+                            style: Theme.of(context).textTheme.titleSmall!,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
+                        const SizedBox(width: 8),
                         ElevatedButton(
                           onPressed: () =>
                               Get.to(() => BookAppointmentDetailsScreen(
