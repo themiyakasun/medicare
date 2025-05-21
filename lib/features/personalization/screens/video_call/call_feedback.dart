@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medicare/features/patient/screens/dashboard/dashboard.dart';
+import 'package:medicare/features/personalization/screens/video_call/thanks_feedback.dart';
 
 class CallFeedbackScreen extends StatefulWidget {
   const CallFeedbackScreen({super.key});
@@ -125,7 +128,7 @@ class _CallFeedbackState extends State<CallFeedbackScreen> {
                       }),
                     ),
 
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 16),
                     TextFormField(
                       maxLines: 4,
                       decoration: InputDecoration(
@@ -155,7 +158,7 @@ class _CallFeedbackState extends State<CallFeedbackScreen> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => Get.to(() => ThanksFeedbackScreen()),
                             style: OutlinedButton.styleFrom(
                               backgroundColor: Colors.orange,
                             ),
@@ -166,7 +169,7 @@ class _CallFeedbackState extends State<CallFeedbackScreen> {
                     ),
                     Center(
                       child: TextButton(
-                        onPressed: () {}, 
+                        onPressed: () => Get.to(() => PatientDashboardScreen()), 
                         style:TextButton.styleFrom(
                           foregroundColor: Colors.orange,
                         ),
