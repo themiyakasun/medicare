@@ -235,7 +235,9 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                     const SizedBox(
                       height: TSizes.xs,
                     ),
-                    TDatePickSlider(),
+                    TDatePickSlider(
+                      doctorId: doctor.id,
+                    ),
                   ],
                 ),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

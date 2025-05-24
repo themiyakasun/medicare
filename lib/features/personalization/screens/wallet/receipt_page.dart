@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ReceiptPage extends StatelessWidget {
+  const ReceiptPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +87,6 @@ class ReceiptPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () =>
                         Navigator.popUntil(context, (route) => route.isFirst),
-                    child: Text("Close"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange,
                       foregroundColor: Colors.white,
@@ -93,6 +94,7 @@ class ReceiptPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                     ),
+                    child: Text("Close"),
                   ),
                 ],
               ),

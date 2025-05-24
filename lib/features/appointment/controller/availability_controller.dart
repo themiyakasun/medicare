@@ -8,14 +8,40 @@ class AvailabilityController extends GetxController {
 
   final isLoading = false.obs;
   final availabilityRepository = Get.put(AvailabilityRepository());
+  final availableTimeSlots = <String>[].obs;
+  final selectedDate = DateTime.now().obs;
+  final RxList<AvailabilityModel> availabilities = <AvailabilityModel>[].obs;
 
-  Future<List<AvailabilityModel>> fetchAvailability(String doctorId) async {
+  void onDateSelected(DateTime date, String doctorId) async {
+    selectedDate.value = date;
+    await fetchTimeSlotsForDate(doctorId, date);
+  }
+
+  Future<void> fetchAvailability(String doctorId) async {
     try {
       isLoading.value = true;
-      return await availabilityRepository.fetchAvailability(doctorId);
+      final data = await availabilityRepository.fetchAvailability(doctorId);
+      availabilities.assignAll(data);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-      return [];
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  List<String> getAvailableDaysOfWeek() {
+    final days = availabilities.map((a) => a.dayOfWeek.trim()).toSet().toList();
+    return days;
+  }
+
+  Future<void> fetchTimeSlotsForDate(String doctorId, DateTime date) async {
+    try {
+      isLoading.value = true;
+      final times =
+          await availabilityRepository.fetchTimeSlotsByDate(doctorId, date);
+      availableTimeSlots.assignAll(times);
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
       isLoading.value = false;
     }

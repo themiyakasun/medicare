@@ -5,6 +5,8 @@ class OtpPage extends StatelessWidget {
   final List<TextEditingController> _otpControllers =
       List.generate(4, (_) => TextEditingController());
 
+  OtpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

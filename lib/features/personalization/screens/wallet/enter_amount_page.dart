@@ -4,6 +4,8 @@ import 'otp_page.dart';
 class EnterAmountPage extends StatelessWidget {
   final TextEditingController _controller = TextEditingController(text: "1000");
 
+  EnterAmountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
