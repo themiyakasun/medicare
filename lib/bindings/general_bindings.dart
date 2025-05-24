@@ -8,6 +8,6 @@ class GeneralBindings extends Bindings {
   void dependencies() {
     Get.put(NetworkManager());
     Get.lazyPut(() => RatingController());
-    Get.lazyPut(() => AvailabilityController());
+    Get.put(AvailabilityController());
   }
 }
