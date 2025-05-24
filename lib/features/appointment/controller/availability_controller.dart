@@ -34,7 +34,7 @@ class AvailabilityController extends GetxController {
     return days;
   }
 
-    Future<void> fetchTimeSlotsForDate(String doctorId, DateTime date) async {
+  Future<void> fetchTimeSlotsForDate(String doctorId, DateTime date) async {
     try {
       isLoading.value = true;
       final times =

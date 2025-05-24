@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:medicare/common/widgets/cards/date_pick_card.dart';
 import 'package:medicare/features/appointment/controller/availability_controller.dart';
 

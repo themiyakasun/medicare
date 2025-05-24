@@ -29,9 +29,7 @@ class AvailabilityRepository extends GetxController {
       throw const TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
-    } catch (e, stackTrace) {
-      print("🔥 Error in fetchAvailability: $e");
-      print("🧵 StackTrace: $stackTrace");
+    } catch (e) {
       throw 'Something went wrong in availability, Please try again';
     }
   }

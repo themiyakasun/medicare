@@ -10,6 +10,8 @@ class WalletScreen extends StatelessWidget {
     {"name": "Dr. Leo Levin", "date": "Oct 30, 2022", "amount": 150},
   ];
 
+  const WalletScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
