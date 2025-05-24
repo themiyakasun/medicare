@@ -55,6 +55,7 @@ dependencies:
   google_sign_in: ^6.3.0
   carousel_slider: ^5.0.0
   confetti: ^0.7.0
+  zego_uikit_prebuilt_call: ^4.16.29
 
 dev_dependencies:
   flutter_test:
