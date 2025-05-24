@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PatientAppointmentsScreen extends StatefulWidget {
   const PatientAppointmentsScreen({super.key});
@@ -10,8 +11,7 @@ class PatientAppointmentsScreen extends StatefulWidget {
 class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
   int selectedTab = 0;
   DateTime selectedDate = DateTime.now();
-  
-  // Sample data
+
   final List<Appointment> appointments = [
     Appointment(
       id: '1',
@@ -67,36 +67,37 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
   }
 
   Widget _buildCalendarSection() {
+    final now = DateTime.now();
+    final currentMonth = DateFormat('MMMM yyyy').format(selectedDate);
+
     return Container(
       color: Colors.white,
       padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'October 2022',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-          ),
+          Text(currentMonth, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
           SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildDateItem(9, 'Mon', true),
-              _buildDateItem(10, 'Tue', false),
-              _buildDateItem(11, 'Wed', false),
-              _buildDateItem(12, 'Thu', false),
-            ],
+            children: List.generate(4, (index) {
+              final date = now.add(Duration(days: index));
+              final isSelected = date.day == selectedDate.day &&
+                  date.month == selectedDate.month &&
+                  date.year == selectedDate.year;
+              return _buildDateItem(date, isSelected);
+            }),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildDateItem(int day, String dayName, bool isSelected) {
+  Widget _buildDateItem(DateTime date, bool isSelected) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedDate = DateTime(2022, 10, day);
+          selectedDate = date;
         });
       },
       child: Container(
@@ -108,7 +109,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
         child: Column(
           children: [
             Text(
-              day.toString(),
+              date.day.toString(),
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -117,7 +118,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
             ),
             SizedBox(height: 4),
             Text(
-              dayName,
+              DateFormat('E').format(date), // Mon, Tue...
               style: TextStyle(
                 fontSize: 12,
                 color: isSelected ? Colors.white : Colors.grey[600],
@@ -148,7 +149,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '03 Appointments',
+            '${appointments.length.toString().padLeft(2, '0')} Appointments',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 16),
@@ -194,7 +195,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
 
   Widget _buildAppointmentList() {
     List<Appointment> filteredAppointments = _getFilteredAppointments();
-    
+
     return ListView.builder(
       padding: EdgeInsets.all(16),
       itemCount: filteredAppointments.length,
@@ -206,13 +207,13 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
 
   List<Appointment> _getFilteredAppointments() {
     switch (selectedTab) {
-      case 1: // Upcoming
+      case 1:
         return appointments.where((a) => a.status == AppointmentStatus.upcoming).toList();
-      case 2: // Completed
+      case 2:
         return appointments.where((a) => a.status == AppointmentStatus.completed).toList();
-      case 3: // Cancelled
+      case 3:
         return appointments.where((a) => a.status == AppointmentStatus.cancelled).toList();
-      default: // All
+      default:
         return appointments;
     }
   }
@@ -242,9 +243,6 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
                 radius: 25,
                 backgroundImage: AssetImage(appointment.avatar),
                 backgroundColor: Colors.grey[300],
-                child: appointment.avatar.isEmpty 
-                  ? Icon(Icons.person, color: Colors.grey[600])
-                  : null,
               ),
               SizedBox(width: 12),
               Expanded(
@@ -253,18 +251,12 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
                   children: [
                     Text(
                       appointment.doctorName,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                     SizedBox(height: 4),
                     Text(
                       '${appointment.specialty} • ${appointment.visitType}',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 14,
-                      ),
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     ),
                   ],
                 ),
@@ -278,10 +270,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
               children: [
                 Icon(Icons.access_time, size: 16, color: Colors.grey[600]),
                 SizedBox(width: 8),
-                Text(
-                  appointment.time,
-                  style: TextStyle(color: Colors.grey[600]),
-                ),
+                Text(appointment.time, style: TextStyle(color: Colors.grey[600])),
               ],
             ),
             SizedBox(height: 16),
@@ -295,7 +284,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
   Widget _buildStatusBadge(AppointmentStatus status) {
     Color color;
     String text;
-    
+
     switch (status) {
       case AppointmentStatus.upcoming:
         color = Colors.orange;
@@ -310,7 +299,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
         text = 'Cancelled';
         break;
     }
-    
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -319,11 +308,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
       ),
       child: Text(
         text,
-        style: TextStyle(
-          color: color,
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-        ),
+        style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -340,14 +325,9 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.orange,
               padding: EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             ),
-            child: Text(
-              'Attend Now',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-            ),
+            child: Text('Attend Now', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
           ),
         );
       case AppointmentStatus.completed:
@@ -355,19 +335,14 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
           width: double.infinity,
           child: OutlinedButton(
             onPressed: () {
-              // Handle view details
+              // View details
             },
             style: OutlinedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               side: BorderSide(color: Colors.orange),
             ),
-            child: Text(
-              'View Details',
-              style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w600),
-            ),
+            child: Text('View Details', style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w600)),
           ),
         );
       case AppointmentStatus.cancelled:
@@ -375,26 +350,21 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
           width: double.infinity,
           child: OutlinedButton(
             onPressed: () {
-              // Handle view details
+              // View details
             },
             style: OutlinedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               side: BorderSide(color: Colors.grey),
             ),
-            child: Text(
-              'View Details',
-              style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w600),
-            ),
+            child: Text('View Details', style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w600)),
           ),
         );
     }
   }
 }
 
-// Data Models
+// Models
 class Appointment {
   final String id;
   final String doctorName;
