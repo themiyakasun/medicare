@@ -33,17 +33,4 @@ class AvailabilityController extends GetxController {
     final days = availabilities.map((a) => a.dayOfWeek.trim()).toSet().toList();
     return days;
   }
-
-  Future<void> fetchTimeSlotsForDate(String doctorId, DateTime date) async {
-    try {
-      isLoading.value = true;
-      final times =
-          await availabilityRepository.fetchTimeSlotsByDate(doctorId, date);
-      availableTimeSlots.assignAll(times);
-    } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    } finally {
-      isLoading.value = false;
-    }
-  }
 }
