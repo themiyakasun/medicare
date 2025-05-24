@@ -14,10 +14,12 @@ class AvailabilityRepository extends GetxController {
   Future<List<AvailabilityModel>> fetchAvailability(String doctorId) async {
     try {
       final doctorRef = _db.collection('Doctors').doc(doctorId);
+
       final snapshot = await _db
           .collection('Availability')
           .where('Doctor', isEqualTo: doctorRef)
           .get();
+
       return snapshot.docs
           .map((doc) => AvailabilityModel.fromSnapshot(doc))
           .toList();
@@ -30,5 +32,34 @@ class AvailabilityRepository extends GetxController {
     } catch (e) {
       throw 'Something went wrong in availability, Please try again';
     }
+  }
+
+  Future<List<String>> fetchTimeSlotsByDate(
+      String doctorId, DateTime date) async {
+    final dayOfWeek = _getDayOfWeek(date);
+
+    final doctorRef = _db.collection('Doctors').doc(doctorId);
+
+    final snapshot = await _db
+        .collection("Availability")
+        .where("Doctor", isEqualTo: doctorRef)
+        .where("DayOfWeek", isEqualTo: dayOfWeek)
+        .get();
+
+    if (snapshot.docs.isEmpty) return [];
+
+    return List<String>.from(snapshot.docs.first.data()['TimeSlots']);
+  }
+
+  String _getDayOfWeek(DateTime date) {
+    return [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ][date.weekday - 1];
   }
 }

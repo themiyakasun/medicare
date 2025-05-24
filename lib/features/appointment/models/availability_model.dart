@@ -34,11 +34,11 @@ class AvailabilityModel {
     final data = document.data()!;
     return AvailabilityModel(
         id: document.id,
-        doctor: data['Doctor'],
+        doctor: data['Doctor'] as DocumentReference,
         dayOfWeek: data['DayOfWeek'],
         timeSlots: List<String>.from(data['TimeSlots']),
-        startTime: data['StartTime'] ?? DateTime.now(),
-        endTime: data['EndTime'] ?? DateTime.now(),
+        startTime: data['StartTime'].toDate() ?? DateTime.now(),
+        endTime: data['EndTime'].toDate() ?? DateTime.now(),
         sessionLength: data['SessionLength'] ?? 0);
   }
 }
