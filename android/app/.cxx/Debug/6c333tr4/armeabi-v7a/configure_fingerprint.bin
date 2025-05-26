@@ -3,6 +3,7 @@ C/C++ Structured Log`
 \/home/heezi/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txtC
 A
 <<<<<<< HEAD
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	†¿Ìâğ2¤ ¨óÓê2j
 h
 f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	†¿Ìâğ2 ÄØÒ‚ë2g
@@ -27,6 +28,32 @@ i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metad
 \/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	‡¿Ìâğ2( ÆØÒ‚ë2e
 c
 a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	‡¿Ìâğ2X ÆØÒ‚ë2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÆÂáÛğ2¤ ¨óÓê2j
+h
+f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	ÆÂáÛğ2 ÄØÒ‚ë2g
+e
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build.json	ÆÂáÛğ2£ ÅØÒ‚ë2l
+j
+h/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build_mini.json	ÆÂáÛğ2À ÆØÒ‚ë2Y
+W
+U/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja	ÆÂáÛğ2²¶ ¹ØÒ‚ë2]
+[
+Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja.txt	ÆÂáÛğ2b
+`
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build_file_index.txt	ÆÂáÛğ2\ ÆØÒ‚ë2c
+a
+_/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json	ÆÂáÛğ2	g
+e
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json.bin	ÆÂáÛğ2
+m
+k
+i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metadata_generation_command.txt	ÆÂáÛğ2 ÆØÒ‚ë2`
+^
+\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	ÆÂáÛğ2( ÆØÒ‚ë2e
+c
+a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	ÆÂáÛğ2X ÆØÒ‚ë2
+>>>>>>> b1b9debf739813408a3d1ccc2716cce04c75b016
 =======
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÆÂáÛğ2¤ ¨óÓê2j
 h
