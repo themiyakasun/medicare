@@ -7,6 +7,7 @@ class DoctorModel {
   final String bio;
   final int experience;
   final String clinicAddress;
+  final double sessionPrice;
   final DocumentReference user;
 
   DoctorModel({
@@ -16,6 +17,7 @@ class DoctorModel {
     required this.bio,
     required this.experience,
     required this.clinicAddress,
+    required this.sessionPrice,
     required this.user,
   });
 
@@ -26,6 +28,7 @@ class DoctorModel {
       bio: '',
       experience: 0,
       clinicAddress: '',
+      sessionPrice: 0.0,
       user: FirebaseFirestore.instance
           .doc('Users/2sab4x2btfQA7wUy6He4y7ekbEf1/'));
 
@@ -36,6 +39,7 @@ class DoctorModel {
       'Bio': bio,
       'Experience': experience,
       'ClinicAddress': clinicAddress,
+      'SessionPrice': sessionPrice,
       'User': user
     };
   }
@@ -51,6 +55,7 @@ class DoctorModel {
           bio: data['Bio'] ?? '',
           experience: data['Experience'] ?? 0,
           clinicAddress: data['ClinicAddress'] ?? '',
+          sessionPrice: (data['SessionPrice'] as num).toDouble(),
           user: data['User'] as DocumentReference);
     } else {
       return empty();

@@ -15,4 +15,17 @@ class THelperFunctions {
     final daysToAdd = DateTime.saturday - today.weekday;
     return List.generate(daysToAdd + 1, (i) => today.add(Duration(days: i)));
   }
+
+  static String getWeekdayName(int weekday) {
+    const names = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ];
+    return names[weekday - 1];
+  }
 }
