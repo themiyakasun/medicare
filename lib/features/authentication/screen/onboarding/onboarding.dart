@@ -62,31 +62,6 @@ class OnBoardingScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              Expanded(
-                  child: Stack(
-                children: [
-                  Positioned(
-                      bottom: 200,
-                      left: 70,
-                      child: Image(image: AssetImage(TImages.eclipe3))),
-                  Positioned(
-                      bottom: 0,
-                      child: Image(image: AssetImage(TImages.eclipe2))),
-                  Positioned(
-                      bottom: 100,
-                      child: Image(image: AssetImage(TImages.eclipe1))),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Image(
-                      image: AssetImage(TImages.main),
-                      width: 522,
-                      height: 653,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ],
-              )),
             ],
           ),
         ),

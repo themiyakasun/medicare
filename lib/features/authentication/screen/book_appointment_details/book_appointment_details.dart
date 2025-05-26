@@ -253,7 +253,7 @@ class BookAppointmentDetailsScreen extends StatelessWidget {
                   ),
                   TTimePickSlider(),
                 ]),
-                TBookAppointmentForm()
+                TBookAppointmentForm(doctor: doctor)
               ],
             ),
           )

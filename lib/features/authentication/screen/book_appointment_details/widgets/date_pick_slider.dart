@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:medicare/common/widgets/cards/date_pick_card.dart';
 import 'package:medicare/features/appointment/controller/availability_controller.dart';
+import 'package:medicare/utils/helpers/helper_functions.dart';
 
 class TDatePickSlider extends StatefulWidget {
   const TDatePickSlider({super.key, required this.doctorId});
@@ -29,17 +29,15 @@ class _TDatePickSliderState extends State<TDatePickSlider> {
     await controller.fetchAvailability(widget.doctorId);
 
     final availableDays = controller.getAvailableDaysOfWeek();
-    print("Available days: $availableDays");
 
     final today = DateTime.now();
-    final remaining = DateTime.saturday - today.weekday;
+    final remaining = 6;
 
     final weekDates = List.generate(
       remaining + 1,
       (i) => today.add(Duration(days: i)),
     ).where((date) {
-      final weekdayName = _getWeekdayName(date.weekday);
-      print("Checking date: $date as $weekdayName");
+      final weekdayName = THelperFunctions.getWeekdayName(date.weekday);
       return availableDays.contains(weekdayName);
     }).toList();
 
@@ -53,25 +51,10 @@ class _TDatePickSliderState extends State<TDatePickSlider> {
     });
   }
 
-  String _getWeekdayName(int weekday) {
-    const names = [
-      '',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday'
-    ];
-    return names[weekday];
-  }
-
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
       items: availableDates.map((date) {
-        print('Date: $date');
         return TDatePickCard(
           key: ValueKey(date),
           date: date,

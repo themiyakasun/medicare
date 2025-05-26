@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/cards/book_appointment_card.dart';
 import 'package:medicare/common/widgets/cards/payment_info_card.dart';
+import 'package:medicare/features/appointment/controller/appointment_controller.dart';
 import 'package:medicare/features/authentication/screen/book_appointment_info/widgets/appointment_type_select.dart';
+import 'package:medicare/features/personalization/models/doctor_model.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 
-class BookAppointmentInfoScreen extends StatelessWidget {
-  const BookAppointmentInfoScreen({super.key});
+class BookAppointmentInfoScreen extends StatefulWidget {
+  const BookAppointmentInfoScreen({super.key, required this.doctor});
+  final DoctorModel doctor;
 
+  @override
+  State<BookAppointmentInfoScreen> createState() =>
+      _BookAppointmentInfoScreenState();
+}
+
+class _BookAppointmentInfoScreenState extends State<BookAppointmentInfoScreen> {
+  final appointmentController = Get.find<AppointmentController>();
+  String selectedType = 'online';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +54,7 @@ class BookAppointmentInfoScreen extends StatelessWidget {
                         ),
                         TBookAppointmentCard(
                           showBooking: false,
+                          doctor: widget.doctor,
                         )
                       ],
                     ),
@@ -69,7 +82,12 @@ class BookAppointmentInfoScreen extends StatelessWidget {
                               ],
                             ),
                             padding: EdgeInsets.all(12),
-                            child: TAppointmentTypeSelect()),
+                            child: TAppointmentTypeSelect(
+                              selectedType: selectedType,
+                              onTypeChanged: (type) => setState(() {
+                                selectedType = type;
+                              }),
+                            )),
                       ],
                     ),
                     Column(
@@ -83,7 +101,9 @@ class BookAppointmentInfoScreen extends StatelessWidget {
                               .titleSmall!
                               .apply(fontWeightDelta: 700),
                         ),
-                        TPaymentInfoCard(label: 'Price', price: '\$100'),
+                        TPaymentInfoCard(
+                            label: 'Price',
+                            price: '\$${widget.doctor.sessionPrice}'),
                         TPaymentInfoCard(label: 'Tax', price: '\$0')
                       ],
                     ),
@@ -98,7 +118,9 @@ class BookAppointmentInfoScreen extends StatelessWidget {
                               .titleSmall!
                               .apply(fontWeightDelta: 700),
                         ),
-                        TPaymentInfoCard(label: 'Total Price', price: '\$100'),
+                        TPaymentInfoCard(
+                            label: 'Total Price',
+                            price: '\$${widget.doctor.sessionPrice}'),
                       ],
                     )
                   ],
@@ -112,8 +134,12 @@ class BookAppointmentInfoScreen extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
-              child: const Text('Confirm & Pay \$100.00'),
+              onPressed: () async {
+                await appointmentController.bookAppointment(
+                    doctor: widget.doctor, type: selectedType);
+              },
+              child: Text(
+                  'Confirm & Pay \$${(widget.doctor.sessionPrice).toString()}'),
             ),
           ),
         ));
