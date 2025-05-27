@@ -2,27 +2,81 @@ C/C++ Structured Log`
 ^
 \/home/heezi/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txtC
 A
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ø¥§‰ğ2¤ ¨óÓê2e
+<<<<<<< HEAD
+<<<<<<< HEAD
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	»¿Ìâğ2¤ ¨óÓê2e
 c
-a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/additional_project_files.txt	ø¥§‰ğ2 ’ÜÒ‚ë2b
+a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/additional_project_files.txt	»¿Ìâğ2 ’ÜÒ‚ë2b
 `
-^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build.json	ø¥§‰ğ2™ “ÜÒ‚ë2g
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build.json	»¿Ìâğ2™ “ÜÒ‚ë2g
 e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build_mini.json	ù¥§‰ğ2¶ ”ÜÒ‚ë2T
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build_mini.json	»¿Ìâğ2¶ ”ÜÒ‚ë2T
 R
-P/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja	ù¥§‰ğ2™¶ ‡ÜÒ‚ë2X
+P/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja	»¿Ìâğ2™¶ ‡ÜÒ‚ë2X
 V
-T/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja.txt	ù¥§‰ğ2]
+T/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja.txt	»¿Ìâğ2]
 [
-Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build_file_index.txt	ù¥§‰ğ2\ ”ÜÒ‚ë2^
+Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build_file_index.txt	»¿Ìâğ2\ ”ÜÒ‚ë2^
 \
-Z/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json	ù¥§‰ğ2	b
+Z/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json	»¿Ìâğ2	b
 `
-^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json.bin	ù¥§‰ğ2
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json.bin	¼¿Ìâğ2
 h
 f
-d/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/metadata_generation_command.txt	ù¥§‰ğ2ô ”ÜÒ‚ë2[
+d/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/metadata_generation_command.txt	¼¿Ìâğ2ô ”ÜÒ‚ë2[
 Y
-W/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/prefab_config.json	ù¥§‰ğ2( ”ÜÒ‚ë2`
+W/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/prefab_config.json	¼¿Ìâğ2( ”ÜÒ‚ë2`
 ^
-\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/symbol_folder_index.txt	ù¥§‰ğ2S ”ÜÒ‚ë2
+\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/symbol_folder_index.txt	¼¿Ìâğ2S ”ÜÒ‚ë2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ıÂáÛğ2¤ ¨óÓê2e
+c
+a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/additional_project_files.txt	ıÂáÛğ2 ’ÜÒ‚ë2b
+`
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build.json	ıÂáÛğ2™ “ÜÒ‚ë2g
+e
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build_mini.json	ıÂáÛğ2¶ ”ÜÒ‚ë2T
+R
+P/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja	ıÂáÛğ2™¶ ‡ÜÒ‚ë2X
+V
+T/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja.txt	ıÂáÛğ2]
+[
+Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build_file_index.txt	şÂáÛğ2\ ”ÜÒ‚ë2^
+\
+Z/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json	şÂáÛğ2	b
+`
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json.bin	şÂáÛğ2
+h
+f
+d/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/metadata_generation_command.txt	şÂáÛğ2ô ”ÜÒ‚ë2[
+Y
+W/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/prefab_config.json	şÂáÛğ2( ”ÜÒ‚ë2`
+^
+\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/symbol_folder_index.txt	şÂáÛğ2S ”ÜÒ‚ë2
+>>>>>>> b1b9debf739813408a3d1ccc2716cce04c75b016
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ıÂáÛğ2¤ ¨óÓê2e
+c
+a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/additional_project_files.txt	ıÂáÛğ2 ’ÜÒ‚ë2b
+`
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build.json	ıÂáÛğ2™ “ÜÒ‚ë2g
+e
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/android_gradle_build_mini.json	ıÂáÛğ2¶ ”ÜÒ‚ë2T
+R
+P/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja	ıÂáÛğ2™¶ ‡ÜÒ‚ë2X
+V
+T/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build.ninja.txt	ıÂáÛğ2]
+[
+Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/build_file_index.txt	şÂáÛğ2\ ”ÜÒ‚ë2^
+\
+Z/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json	şÂáÛğ2	b
+`
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/compile_commands.json.bin	şÂáÛğ2
+h
+f
+d/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/metadata_generation_command.txt	şÂáÛğ2ô ”ÜÒ‚ë2[
+Y
+W/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/prefab_config.json	şÂáÛğ2( ”ÜÒ‚ë2`
+^
+\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/x86_64/symbol_folder_index.txt	şÂáÛğ2S ”ÜÒ‚ë2
+>>>>>>> b1b9debf739813408a3d1ccc2716cce04c75b016

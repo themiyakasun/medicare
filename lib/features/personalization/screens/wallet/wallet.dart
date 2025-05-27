@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/features/personalization/screens/wallet/payment_method_page.dart';
 
 class WalletScreen extends StatelessWidget {
@@ -9,8 +8,7 @@ class WalletScreen extends StatelessWidget {
     {"name": "Dr. Alfredo Geidt", "date": "Oct 28, 2022", "amount": 350},
     {"name": "Dr. Leo Levin", "date": "Oct 30, 2022", "amount": 150},
   ];
-
-  const WalletScreen({super.key});
+  WalletScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
