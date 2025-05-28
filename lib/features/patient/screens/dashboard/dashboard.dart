@@ -8,6 +8,7 @@ import 'package:medicare/features/personalization/controllers/user_controller.da
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
+import 'package:medicare/features/patient/screens/notification/NotificationsScreen.dart';
 
 class PatientDashboardScreen extends StatelessWidget {
   const PatientDashboardScreen({super.key});
@@ -43,7 +44,8 @@ class PatientDashboardScreen extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              // Your action here
+
+                              Get.to(() => const NotificationsScreen());
                             },
                             child: Container(
                               width: 32,

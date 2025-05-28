@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicare/utils/constants/colors.dart';
+// Import your NotificationScreen
+import 'package:medicare/features/doctor/screens/notification/NotificationsScreen.dart';
 
 class DashboardHeader extends StatelessWidget {
   final String userName;
@@ -40,28 +42,38 @@ class DashboardHeader extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  child: Stack(
-                    children: [
-                      const Icon(Icons.notifications_none, color: TColors.neutralsDark),
-                      Positioned(
-                        right: 0,
-                        top: 0,
-                        child: Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: Colors.orange,
-                            shape: BoxShape.circle,
+                // Notification Icon and GestureDetector
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to the NotificationScreen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const NotificationsScreen()),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    child: Stack(
+                      children: [
+                        const Icon(Icons.notifications_none, color: TColors.neutralsDark),
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            width: 8,
+                            height: 8,
+                            decoration: const BoxDecoration(
+                              color: Colors.orange,
+                              shape: BoxShape.circle,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
