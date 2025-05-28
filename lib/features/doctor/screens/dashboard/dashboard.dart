@@ -5,6 +5,8 @@ import 'package:medicare/features/doctor/screens/dashboard/widgets/blog_prompt.d
 import 'package:medicare/features/doctor/screens/dashboard/widgets/patient_visit_chart.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/features/doctor/screens/dashboard/widgets/dashboard_header.dart';
+import 'package:medicare/features/doctor/screens/search/search.dart';
+import 'package:medicare/features/doctor/screens/menu/menu.dart';
 
 class DoctorDashboardScreen extends StatelessWidget {
   const DoctorDashboardScreen({super.key});
@@ -109,8 +111,7 @@ class DoctorDashboardScreen extends StatelessWidget {
                 label: 'Appointments',
                 isSelected: false,
                 onTap: () {
-                  // Navigate to appointments
-                  // Get.to(() => DoctorAppointmentsScreen());
+                  Get.to(() => AppointmentCard());
                 },
               ),
               _buildNavigationItem(
@@ -118,8 +119,7 @@ class DoctorDashboardScreen extends StatelessWidget {
                 label: 'Search',
                 isSelected: false,
                 onTap: () {
-                  // Navigate to search
-                  // Get.to(() => DoctorSearchScreen());
+                  Get.to(() => doctorSearchScreen());
                 },
               ),
               _buildNavigationItem(
@@ -127,8 +127,7 @@ class DoctorDashboardScreen extends StatelessWidget {
                 label: 'Menu',
                 isSelected: false,
                 onTap: () {
-                  // Navigate to menu
-                  // Get.to(() => DoctorMenuScreen());
+                  Get.to(() => doctorMenuScreen());
                 },
               ),
             ],
