@@ -9,6 +9,7 @@ import 'package:medicare/features/personalization/screens/change_password/change
 import 'package:medicare/features/personalization/screens/Teams&Conditions/Teams.dart';
 import 'package:medicare/features/personalization/screens/video_call/video_call.dart';
 import 'package:medicare/features/personalization/screens/wallet/wallet.dart';
+import 'package:medicare/features/personalization/screens/news&blogs/news&blogs.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
@@ -99,7 +100,7 @@ class PatientMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.newspaper,
                     title: 'News & Blogs',
-                    onPressed: () => {}),
+                    onPressed: () => Get.to(() => NewsAndBlogsPage())),
                 TMenuTile(
                     icon: Icons.support_agent,
                     title: 'Support',
