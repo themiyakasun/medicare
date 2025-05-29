@@ -8,6 +8,7 @@ import 'package:medicare/features/personalization/screens/account_settings/accou
 import 'package:medicare/features/personalization/screens/change_password/change_password.dart';
 import 'package:medicare/features/personalization/screens/video_call/video_call.dart';
 import 'package:medicare/features/personalization/screens/wallet/wallet.dart';
+import 'package:medicare/features/personalization/screens/Support/Support.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
@@ -102,7 +103,8 @@ class DoctorMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.support_agent,
                     title: 'Support',
-                    onPressed: () => {}),
+                    onPressed: () =>
+                        Get.to(() => SupportScreen(userName: "Sir"))),
                 Padding(
                   padding: EdgeInsets.all(TSizes.gridViewSpacing),
                   child: SizedBox(
