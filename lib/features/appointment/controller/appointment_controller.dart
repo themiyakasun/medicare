@@ -10,7 +10,9 @@ import 'package:medicare/common/widgets/loaders.dart';
 import 'package:medicare/features/patient/screens/appointments/appointments.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/features/personalization/models/doctor_model.dart';
+import 'package:medicare/utils/constants/enums.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
+import 'package:medicare/utils/popups/full_screen_loader.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 import 'package:uuid/uuid.dart';
 
@@ -18,8 +20,28 @@ class AppointmentController extends GetxController {
   static AppointmentController get instance => Get.find();
 
   final appointmentRepository = Get.put(AppointmentRepository());
+  final UserController userController = Get.find<UserController>();
   final concern = TextEditingController();
   final description = TextEditingController();
+
+  final RxBool isLoading = true.obs;
+  final RxList<AppointmentModel> patientAppointments = <AppointmentModel>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    if (userController.user.value.id.isNotEmpty &&
+        userController.user.value.role == AppRole.patient) {
+      fetchPatientAppointments();
+    } else if (userController.user.value.id.isEmpty) {
+      ever(userController.user, (callback) {
+        if (userController.user.value.id.isNotEmpty &&
+            userController.user.value.role == AppRole.patient) {
+          fetchPatientAppointments();
+        }
+      });
+    }
+  }
 
   Future<void> bookAppointment(
       {required DoctorModel doctor, required String type}) async {
@@ -97,6 +119,72 @@ class AppointmentController extends GetxController {
           ));
     } catch (e) {
       TLoaders.errorSnackBar(title: "Booking Failed", message: e.toString());
+    }
+  }
+
+  Future<void> fetchPatientAppointments() async {
+    try {
+      isLoading.value = true;
+      if (userController.user.value.id.isEmpty) {
+        TLoaders.warningSnackBar(
+            title: 'User Not Found',
+            message: 'Cannot fetch appointments without user login.');
+        isLoading.value = false;
+        return;
+      }
+      if (userController.user.value.role != AppRole.patient) {
+        TLoaders.errorSnackBar(
+            title: 'Not a Patient', message: 'This section is for patients.');
+        isLoading.value = false;
+        return;
+      }
+
+      final appointments = await appointmentRepository
+          .fetchAppointmentsForPatient(userController.user.value.id);
+      patientAppointments.assignAll(appointments);
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap!',
+          message: 'Failed to fetch appointments: ${e.toString()}');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  Future<void> cancelAppointment(String appointmentId) async {
+    try {
+      TFullScreenLoader.openLoadingDialog(
+          'Cancelling your appointment....', TImages.processing);
+
+      await appointmentRepository.deleteAppointment(appointmentId);
+      patientAppointments.removeWhere((app) => app.id == appointmentId);
+      TLoaders.successSnackBar(
+          title: 'Success', message: 'Appointment cancelled successfully.');
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap!',
+          message: 'Failed to cancel appointment: ${e.toString()}');
+    }
+  }
+
+  Future<AppointmentModel?> getAppointmentDetails(String appointmentId) async {
+    try {
+      isLoading.value = true;
+      final appointment =
+          await appointmentRepository.fetchAppointmentById(appointmentId);
+      if (appointment == null) {
+        TLoaders.errorSnackBar(
+            title: 'Not Found',
+            message: 'Appointment details could not be retrieved.');
+      }
+      return appointment;
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: 'Oh Snap!',
+          message: 'Failed to fetch appointment details: ${e.toString()}');
+      return null;
+    } finally {
+      isLoading.value = false;
     }
   }
 }
