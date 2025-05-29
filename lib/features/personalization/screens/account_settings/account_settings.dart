@@ -13,13 +13,13 @@ class AccountSettingsScreen extends StatefulWidget {
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   // Define TextEditingControllers for each input field to manage their state
   final TextEditingController _nameController =
-      TextEditingController(text: 'Rayna Carder'); //
+      TextEditingController(text: ''); //
   final TextEditingController _emailController =
-      TextEditingController(text: 'adam.costa@email.com'); //
+      TextEditingController(text: 'dilshanivitharana@gmail.com'); //
   final TextEditingController _contactController =
-      TextEditingController(text: '(555) 555-1234'); //
+      TextEditingController(text: ''); //
   final TextEditingController _addressController =
-      TextEditingController(text: '15205 North Kierland Blvd. Suite 100'); //
+      TextEditingController(text: ''); //
 
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();

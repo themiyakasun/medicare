@@ -50,6 +50,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   bool _isNewPasswordVisible = false;
   bool _isRetypeNewPasswordVisible = false;
 
+  // State to hold the password mismatch error message
+  String? _passwordMismatchError; // This will hold the error message for password mismatch
+
   @override
   void dispose() {
     // Dispose of the controllers to prevent memory leaks when the widget is removed from the widget tree
@@ -126,7 +129,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   _isRetypeNewPasswordVisible = !_isRetypeNewPasswordVisible;
                 });
               },
+              errorText: _passwordMismatchError, // Pass the error text to highlight the field
             ),
+            // Conditionally display the error message below the field if it's not null
+            if (_passwordMismatchError != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0), // Padding above the error message
+                child: Text(
+                  _passwordMismatchError!,
+                  style: const TextStyle(color: Colors.red, fontSize: 12.0), // Style for the error text
+                ),
+              ),
             const Spacer(), // Pushes the "Save Password" button to the bottom
 
             // Save Password Button
@@ -134,14 +147,84 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               width: double.infinity, // Make the button take the full available width
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle save password logic
-                  print('Old Password: ${_oldPasswordController.text}');
-                  print('New Password: ${_newPasswordController.text}');
-                  print('Retype New Password: ${_retypeNewPasswordController.text}');
-                  // TODO: Add your validation and API calls here to update the password
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Password Change Attempted!')),
-                  );
+                  // Clear previous error message when button is pressed
+                  setState(() {
+                    _passwordMismatchError = null;
+                  });
+
+                  // Get the current text from the controllers
+                  final String oldPassword = _oldPasswordController.text;
+                  final String newPassword = _newPasswordController.text;
+                  final String retypeNewPassword = _retypeNewPasswordController.text;
+
+                  // Basic validation: Check if any field is empty
+                  if (oldPassword.isEmpty || newPassword.isEmpty || retypeNewPassword.isEmpty) {
+                     ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('All password fields must be filled!'),
+                        backgroundColor: Colors.orange, // Use a warning color
+                      ),
+                    );
+                    return; // Stop further execution if fields are empty
+                  }
+
+                  // Validate if new password and retype new password match
+                  if (newPassword != retypeNewPassword) {
+                    setState(() {
+                      _passwordMismatchError = 'New passwords do not match.';
+                    });
+                    // Show a SnackBar for quick user feedback
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('New passwords do not match!'),
+                        backgroundColor: Colors.red, // Use a distinct color for errors
+                      ),
+                    );
+                  } else {
+                    // If passwords match, proceed with saving logic
+                    print('Old Password: $oldPassword');
+                    print('New Password: $newPassword');
+                    print('Retype New Password: $retypeNewPassword');
+
+                    // TODO: Add your actual password update API call here.
+                    // This is where you would typically send the old and new passwords to your backend.
+                    // Example:
+                    // try {
+                    //   await YourAuthService.changePassword(oldPassword, newPassword);
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     const SnackBar(
+                    //       content: Text('Password changed successfully!'),
+                    //       backgroundColor: Colors.green,
+                    //     ),
+                    //   );
+                    //   _oldPasswordController.clear();
+                    //   _newPasswordController.clear();
+                    //   _retypeNewPasswordController.clear();
+                    //   // Optionally navigate back after success
+                    //   // Navigator.pop(context);
+                    // } catch (e) {
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     SnackBar(
+                    //       content: Text('Failed to change password: ${e.toString()}'),
+                    //       backgroundColor: Colors.red,
+                    //     ),
+                    //   );
+                    // }
+
+                    // --- Placeholder for successful password change ---
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Password changed successfully!'),
+                        backgroundColor: Colors.green, // Use a success color
+                      ),
+                    );
+                    // Clear fields after successful change
+                    _oldPasswordController.clear();
+                    _newPasswordController.clear();
+                    _retypeNewPasswordController.clear();
+                    // Optionally navigate back after success
+                    // Navigator.pop(context);
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange, // Background color of the button
@@ -169,6 +252,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     required String labelText,
     required bool isVisible,
     required VoidCallback onToggleVisibility,
+    String? errorText, // Added optional errorText parameter for displaying errors
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, // Align label to the start (left)
@@ -189,16 +273,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             fillColor: Colors.white, // Background color of the input area
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0), // Rounded corners for the border
-              borderSide: const BorderSide(color: Colors.grey, width: 0.8), // Default border style
+              // Change border color to red if there's an error, otherwise grey
+              borderSide: BorderSide(color: errorText != null ? Colors.red : Colors.grey, width: 0.8),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(color: Colors.grey, width: 0.8), // Enabled border style
+              // Change enabled border color to red if there's an error, otherwise grey
+              borderSide: BorderSide(color: errorText != null ? Colors.red : Colors.grey, width: 0.8),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
-              borderSide: const BorderSide(
-                  color: Colors.orange, width: 1.5), // Orange border when focused
+              // Change focused border color to red if there's an error, otherwise orange
+              borderSide: BorderSide(
+                  color: errorText != null ? Colors.red : Colors.orange, width: 1.5),
             ),
             suffixIcon: IconButton(
               icon: Icon(
@@ -213,6 +300,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.black54, // Hint text style
                 ),
+            // Note: We are displaying the error text outside the InputDecoration
+            // using a separate Text widget for better control over its position
+            // and to avoid issues with InputDecoration's built-in error display
+            // which might shift content.
           ),
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Colors.black, // Input text style
