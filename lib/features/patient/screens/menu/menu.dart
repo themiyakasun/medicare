@@ -6,8 +6,10 @@ import 'package:medicare/data/repositories/authentication/authentication_reposit
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/features/personalization/screens/account_settings/account_settings.dart';
 import 'package:medicare/features/personalization/screens/change_password/change_password.dart';
+import 'package:medicare/features/personalization/screens/Teams&Conditions/Teams.dart';
 import 'package:medicare/features/personalization/screens/video_call/video_call.dart';
 import 'package:medicare/features/personalization/screens/wallet/wallet.dart';
+import 'package:medicare/features/personalization/screens/news&blogs/news&blogs.dart';
 import 'package:medicare/utils/constants/colors.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
@@ -90,7 +92,7 @@ class PatientMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.file_copy,
                     title: 'Terms & Conditions',
-                    onPressed: () => {}),
+                    onPressed: () => Get.to(() => TermsAndConditionsPage())),
                 TMenuTile(
                     icon: Icons.video_call,
                     title: 'Video Call',
@@ -98,7 +100,7 @@ class PatientMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.newspaper,
                     title: 'News & Blogs',
-                    onPressed: () => {}),
+                    onPressed: () => Get.to(() => NewsAndBlogsPage())),
                 TMenuTile(
                     icon: Icons.support_agent,
                     title: 'Support',
