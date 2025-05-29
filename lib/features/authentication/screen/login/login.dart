@@ -4,7 +4,6 @@ import 'package:medicare/common/widgets/divider.dart';
 import 'package:medicare/common/widgets/social_buttons.dart';
 import 'package:medicare/features/authentication/screen/login/widgets/login_form.dart';
 import 'package:medicare/features/authentication/screen/login/widgets/login_header.dart';
-import 'package:medicare/features/doctor/screens/dashboard/dashboard.dart';
 import 'package:medicare/utils/constants/sizes.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -38,21 +37,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // Bottom Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const DoctorDashboardScreen()),
-                    );
-                  },
-                  child: const Text("Go to Doctor Dashboard"),
-                ),
-              ),
-              const SizedBox(height: 16),
             ],
           ),
         ),
