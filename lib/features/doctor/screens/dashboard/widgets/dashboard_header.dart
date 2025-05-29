@@ -33,6 +33,7 @@ class DashboardHeader extends StatelessWidget {
                           Theme.of(context).textTheme.headlineSmall?.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
+                                fontSize: 25.0,
                               ),
                     ),
                     const SizedBox(height: 4),
