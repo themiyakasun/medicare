@@ -4,8 +4,10 @@ import 'package:medicare/common/widgets/appbar.dart';
 import 'package:medicare/common/widgets/list_styles/menu_tile.dart';
 import 'package:medicare/data/repositories/authentication/authentication_repository.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
+import 'package:medicare/features/personalization/screens/Teams&Conditions/Teams.dart';
 import 'package:medicare/features/personalization/screens/account_settings/account_settings.dart';
 import 'package:medicare/features/personalization/screens/change_password/change_password.dart';
+import 'package:medicare/features/personalization/screens/news&blogs/news&blogs.dart';
 import 'package:medicare/features/personalization/screens/video_call/video_call.dart';
 import 'package:medicare/features/personalization/screens/wallet/wallet.dart';
 import 'package:medicare/features/personalization/screens/Support/Support.dart';
@@ -91,7 +93,7 @@ class DoctorMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.file_copy,
                     title: 'Terms & Conditions',
-                    onPressed: () => {}),
+                    onPressed: () => Get.to(() => TermsAndConditionsPage())),
                 TMenuTile(
                     icon: Icons.video_call,
                     title: 'Video Call',
@@ -99,7 +101,7 @@ class DoctorMenuScreen extends StatelessWidget {
                 TMenuTile(
                     icon: Icons.newspaper,
                     title: 'News & Blogs',
-                    onPressed: () => {}),
+                    onPressed: () => Get.to(() => NewsAndBlogsPage())),
                 TMenuTile(
                     icon: Icons.support_agent,
                     title: 'Support',

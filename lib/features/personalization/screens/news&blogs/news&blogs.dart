@@ -65,9 +65,9 @@ class _NewsAndBlogsPageState extends State<NewsAndBlogsPage>
         ],
         bottom: TabBar(
           controller: _tabController,
-          labelColor: const Color(0xFF2E7D8A),
-          unselectedLabelColor: Colors.grey[600],
-          indicatorColor: const Color(0xFF2E7D8A),
+          labelColor: const Color.fromARGB(255, 244, 127, 24),
+          unselectedLabelColor: const Color.fromARGB(255, 239, 237, 237),
+          indicatorColor: const Color.fromARGB(255, 218, 159, 31),
           labelStyle: const TextStyle(fontWeight: FontWeight.w600),
           tabs: const [
             Tab(text: 'Latest News'),
@@ -144,7 +144,7 @@ class _NewsAndBlogsPageState extends State<NewsAndBlogsPage>
                     selectedColor: const Color(0xFF2E7D8A).withOpacity(0.2),
                     labelStyle: TextStyle(
                       color: isSelected
-                          ? const Color(0xFF2E7D8A)
+                          ? const Color.fromARGB(255, 235, 176, 29)
                           : Colors.grey[700],
                       fontWeight:
                           isSelected ? FontWeight.w600 : FontWeight.normal,
@@ -206,8 +206,8 @@ class _NewsAndBlogsPageState extends State<NewsAndBlogsPage>
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFF2E7D8A),
-            const Color(0xFF2E7D8A).withOpacity(0.8),
+            const Color.fromARGB(255, 230, 131, 33),
+            const Color.fromARGB(255, 245, 144, 37).withOpacity(0.8),
           ],
         ),
       ),
