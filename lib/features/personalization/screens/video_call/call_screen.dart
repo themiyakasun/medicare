@@ -5,7 +5,7 @@ import 'package:medicare/features/personalization/screens/video_call/constant.da
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class CallPage extends StatelessWidget {
-  const CallPage({Key? key, required this.callID}) : super(key: key);
+  const CallPage({super.key, required this.callID});
   final String callID;
 
   @override

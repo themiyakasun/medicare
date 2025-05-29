@@ -2,81 +2,27 @@ C/C++ Structured Log`
 ^
 \/home/heezi/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txtC
 A
-<<<<<<< HEAD
-<<<<<<< HEAD
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	†¿Ìâð2¤ ¨óÓê2j
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÏôÝÕñ2¤ ¨óÓê2j
 h
-f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	†¿Ìâð2 ÄØÒ‚ë2g
+f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	ÏôÝÕñ2 Íº´ëð2g
 e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build.json	†¿Ìâð2£ ÅØÒ‚ë2l
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build.json	ÏôÝÕñ2£ Ñº´ëð2l
 j
-h/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build_mini.json	†¿Ìâð2À ÆØÒ‚ë2Y
+h/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build_mini.json	ÏôÝÕñ2À Òº´ëð2Y
 W
-U/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja	†¿Ìâð2²¶ ¹ØÒ‚ë2]
+U/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja	ÐôÝÕñ2²¶ ±º´ëð2]
 [
-Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja.txt	†¿Ìâð2b
+Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja.txt	ÐôÝÕñ2b
 `
-^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build_file_index.txt	†¿Ìâð2\ ÆØÒ‚ë2c
+^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build_file_index.txt	ÐôÝÕñ2\ Òº´ëð2c
 a
-_/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json	†¿Ìâð2	g
+_/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json	ÐôÝÕñ2	g
 e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json.bin	†¿Ìâð2
+c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json.bin	ÐôÝÕñ2
 m
 k
-i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metadata_generation_command.txt	‡¿Ìâð2 ÆØÒ‚ë2`
+i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metadata_generation_command.txt	ÐôÝÕñ2 Òº´ëð2`
 ^
-\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	‡¿Ìâð2( ÆØÒ‚ë2e
+\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	ÐôÝÕñ2( Òº´ëð2e
 c
-a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	‡¿Ìâð2X ÆØÒ‚ë2
-=======
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÆÂáÛð2¤ ¨óÓê2j
-h
-f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	ÆÂáÛð2 ÄØÒ‚ë2g
-e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build.json	ÆÂáÛð2£ ÅØÒ‚ë2l
-j
-h/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build_mini.json	ÆÂáÛð2À ÆØÒ‚ë2Y
-W
-U/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja	ÆÂáÛð2²¶ ¹ØÒ‚ë2]
-[
-Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja.txt	ÆÂáÛð2b
-`
-^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build_file_index.txt	ÆÂáÛð2\ ÆØÒ‚ë2c
-a
-_/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json	ÆÂáÛð2	g
-e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json.bin	ÆÂáÛð2
-m
-k
-i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metadata_generation_command.txt	ÆÂáÛð2 ÆØÒ‚ë2`
-^
-\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	ÆÂáÛð2( ÆØÒ‚ë2e
-c
-a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	ÆÂáÛð2X ÆØÒ‚ë2
->>>>>>> b1b9debf739813408a3d1ccc2716cce04c75b016
-=======
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÆÂáÛð2¤ ¨óÓê2j
-h
-f/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/additional_project_files.txt	ÆÂáÛð2 ÄØÒ‚ë2g
-e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build.json	ÆÂáÛð2£ ÅØÒ‚ë2l
-j
-h/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/android_gradle_build_mini.json	ÆÂáÛð2À ÆØÒ‚ë2Y
-W
-U/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja	ÆÂáÛð2²¶ ¹ØÒ‚ë2]
-[
-Y/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build.ninja.txt	ÆÂáÛð2b
-`
-^/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/build_file_index.txt	ÆÂáÛð2\ ÆØÒ‚ë2c
-a
-_/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json	ÆÂáÛð2	g
-e
-c/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/compile_commands.json.bin	ÆÂáÛð2
-m
-k
-i/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/metadata_generation_command.txt	ÆÂáÛð2 ÆØÒ‚ë2`
-^
-\/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/prefab_config.json	ÆÂáÛð2( ÆØÒ‚ë2e
-c
-a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	ÆÂáÛð2X ÆØÒ‚ë2
->>>>>>> b1b9debf739813408a3d1ccc2716cce04c75b016
+a/home/heezi/projects/medicare/android/app/.cxx/Debug/6c333tr4/armeabi-v7a/symbol_folder_index.txt	ÐôÝÕñ2X Òº´ëð2

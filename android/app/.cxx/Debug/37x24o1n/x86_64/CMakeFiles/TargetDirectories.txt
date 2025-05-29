@@ -1,2 +1,0 @@
-D:/Project/medicare/android/app/.cxx/Debug/37x24o1n/x86_64/CMakeFiles/edit_cache.dir
-D:/Project/medicare/android/app/.cxx/Debug/37x24o1n/x86_64/CMakeFiles/rebuild_cache.dir

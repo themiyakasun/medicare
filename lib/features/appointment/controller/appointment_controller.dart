@@ -1,14 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medicare/common/widgets/success_screen.dart';
 import 'package:medicare/data/repositories/appointment/appoinment_repository.dart';
 import 'package:medicare/data/services/stripe_service.dart';
 import 'package:medicare/features/appointment/controller/availability_controller.dart';
 import 'package:medicare/features/appointment/models/appointment_model.dart';
 import 'package:medicare/common/widgets/loaders.dart';
+import 'package:medicare/features/patient/screens/appointments/appointments.dart';
 import 'package:medicare/features/personalization/controllers/user_controller.dart';
 import 'package:medicare/features/personalization/models/doctor_model.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
+import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 import 'package:uuid/uuid.dart';
 
 class AppointmentController extends GetxController {
@@ -85,6 +88,13 @@ class AppointmentController extends GetxController {
 
       TLoaders.successSnackBar(
           title: "Success", message: "Appointment booked successfully.");
+
+      Get.off(() => SuccessScreen(
+            image: TImages.successAnimation,
+            title: 'Your appointment booked successfully',
+            subTitle: 'Make sure to attend on $selectedDate',
+            onPressed: () => PatientAppointmentsScreen(),
+          ));
     } catch (e) {
       TLoaders.errorSnackBar(title: "Booking Failed", message: e.toString());
     }

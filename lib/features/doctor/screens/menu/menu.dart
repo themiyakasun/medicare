@@ -13,8 +13,8 @@ import 'package:medicare/utils/constants/sizes.dart';
 import 'package:medicare/utils/helpers/helper_functions.dart';
 import 'package:medicare/utils/theme/custom_themes/image_strings.dart';
 
-class doctorMenuScreen extends StatelessWidget {
-  const doctorMenuScreen({super.key});
+class DoctorMenuScreen extends StatelessWidget {
+  const DoctorMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

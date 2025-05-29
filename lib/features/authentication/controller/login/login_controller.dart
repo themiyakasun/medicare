@@ -44,9 +44,14 @@ class LoginController extends GetxController {
       final userCredential = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
+      if (userCredential.user != null) {
+        await userController.fetchUserRecord();
+      }
+
       TFullScreenLoader.stopLoading();
 
-      AuthenticationRepository.instance.screenRedirect();
+      AuthenticationRepository.instance
+          .screenRedirect(userController.user.value.role);
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
@@ -71,7 +76,8 @@ class LoginController extends GetxController {
 
       TFullScreenLoader.stopLoading();
 
-      AuthenticationRepository.instance.screenRedirect();
+      AuthenticationRepository.instance
+          .screenRedirect(userController.user.value.role);
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());

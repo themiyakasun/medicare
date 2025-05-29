@@ -17,12 +17,17 @@ class UserModel {
       required this.email,
       required this.phoneNumber,
       required this.profilePicture,
-      this.role = AppRole.patient,
+      required this.role,
       this.createdAt,
       this.updatedAt});
 
   static UserModel empty() => UserModel(
-      id: '', name: '', email: '', phoneNumber: '', profilePicture: '');
+      id: '',
+      name: '',
+      email: '',
+      phoneNumber: '',
+      profilePicture: '',
+      role: AppRole.patient);
 
   Map<String, dynamic> toJson() {
     return {
@@ -30,7 +35,7 @@ class UserModel {
       'Email': email,
       'PhoneNumber': phoneNumber,
       'Profile Picture': profilePicture,
-      'Role': role.name.toString(),
+      'Role': role.name,
       'CreatedAt': createdAt,
       'UpdatedAt': updatedAt = DateTime.now()
     };
@@ -50,12 +55,8 @@ class UserModel {
           profilePicture: data.containsKey('Profile Picture')
               ? data['Profile Picture'] ?? ''
               : '',
-          role: data.containsKey('Role')
-              ? (data['Role'] ?? AppRole.patient) ==
-                      AppRole.doctor.name.toString()
-                  ? AppRole.doctor
-                  : AppRole.patient
-              : AppRole.patient,
+          role: AppRole.values.firstWhere((e) => e.name == data['Role'],
+              orElse: () => AppRole.patient),
           createdAt: data.containsKey('CreatedAt')
               ? data['CreatedAt']?.toDate() ?? DateTime.now()
               : DateTime.now(),

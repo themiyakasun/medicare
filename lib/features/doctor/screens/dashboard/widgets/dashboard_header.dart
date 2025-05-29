@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medicare/features/patient/screens/notification/NotificationsScreen.dart';
 import 'package:medicare/utils/constants/colors.dart';
-// Import your NotificationScreen
-import 'package:medicare/features/doctor/screens/notification/NotificationsScreen.dart';
 
 class DashboardHeader extends StatelessWidget {
   final String userName;
@@ -30,10 +29,11 @@ class DashboardHeader extends StatelessWidget {
                   children: [
                     Text(
                       'Hey, Dr. $userName!',
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                     const SizedBox(height: 4),
                     const Text(
@@ -48,7 +48,8 @@ class DashboardHeader extends StatelessWidget {
                     // Navigate to the NotificationScreen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const NotificationsScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationsScreen()),
                     );
                   },
                   child: Container(
@@ -59,7 +60,8 @@ class DashboardHeader extends StatelessWidget {
                     padding: const EdgeInsets.all(8),
                     child: Stack(
                       children: [
-                        const Icon(Icons.notifications_none, color: TColors.neutralsDark),
+                        const Icon(Icons.notifications_none,
+                            color: TColors.neutralsDark),
                         Positioned(
                           right: 0,
                           top: 0,

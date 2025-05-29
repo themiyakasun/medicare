@@ -6,7 +6,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:medicare/features/authentication/screen/login/login.dart';
 import 'package:medicare/features/authentication/screen/onboarding/onboarding.dart';
 import 'package:medicare/features/authentication/screen/signup/verify_email.dart';
-import 'package:medicare/navigation_menu.dart';
+import 'package:medicare/features/personalization/controllers/user_controller.dart';
+import 'package:medicare/navigation_menu_dcotor.dart';
+import 'package:medicare/navigation_menu_patient.dart';
+import 'package:medicare/utils/constants/enums.dart';
 import 'package:medicare/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:medicare/utils/exceptions/firebase_exceptions.dart';
 import 'package:medicare/utils/exceptions/format_exceptions.dart';
@@ -27,18 +30,60 @@ class AuthenticationRepository extends GetxController {
     screenRedirect();
   }
 
-  screenRedirect() async {
+  screenRedirect([AppRole? role]) async {
     final user = _auth.currentUser;
+    print(
+        'ScreenRedirect: Current auth user: ${user?.email}, Passed role: $role');
 
     if (user != null) {
-      if (user.emailVerified) {
-        Get.offAll(() => const NavigationMenu());
+      AppRole finalRole;
+
+      if (role != null) {
+        finalRole = role;
+        print('ScreenRedirect: Using passed role: $finalRole');
       } else {
+        try {
+          final userController = Get.isRegistered<UserController>()
+              ? Get.find<UserController>()
+              : Get.put(UserController());
+
+          if (userController.user.value.id.isEmpty ||
+              userController.user.value.id != user.uid) {
+            await userController.fetchUserRecord();
+          }
+
+          if (userController.user.value.id.isNotEmpty) {
+            finalRole = userController.user.value.role;
+            print(
+                'ScreenRedirect: Fetched role from UserController: $finalRole');
+          } else {
+            print(
+                'ScreenRedirect: Could not fetch user record from UserController, defaulting to patient for redirection logic.');
+            finalRole = AppRole.patient;
+          }
+        } catch (e) {
+          print(
+              'ScreenRedirect: Error fetching role from UserController: $e. Defaulting to patient.');
+          finalRole = AppRole.patient;
+        }
+      }
+
+      if (user.emailVerified) {
+        if (finalRole == AppRole.doctor) {
+          print('Redirecting to NavigationMenuDoctor');
+          Get.offAll(() => const NavigationMenuDoctor());
+        } else {
+          print('Redirecting to NavigationMenuPatient');
+          Get.offAll(() => const NavigationMenuPatient());
+        }
+      } else {
+        print('Redirecting to VerifyEmailScreen');
         Get.offAll(() => VerifyEmailScreen(
               email: _auth.currentUser?.email,
             ));
       }
     } else {
+      print('Redirecting to Onboarding or Login');
       deviceStorage.writeIfNull('IsFirstTime', true);
       deviceStorage.read('IsFirstTime') != true
           ? Get.offAll(() => const LoginScreen())
