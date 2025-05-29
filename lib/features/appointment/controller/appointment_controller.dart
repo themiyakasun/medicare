@@ -27,21 +27,21 @@ class AppointmentController extends GetxController {
   final RxBool isLoading = true.obs;
   final RxList<AppointmentModel> patientAppointments = <AppointmentModel>[].obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-    if (userController.user.value.id.isNotEmpty &&
-        userController.user.value.role == AppRole.patient) {
-      fetchPatientAppointments();
-    } else if (userController.user.value.id.isEmpty) {
-      ever(userController.user, (callback) {
-        if (userController.user.value.id.isNotEmpty &&
-            userController.user.value.role == AppRole.patient) {
-          fetchPatientAppointments();
-        }
-      });
-    }
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   if (userController.user.value.id.isNotEmpty &&
+  //       userController.user.value.role == AppRole.patient) {
+  //     fetchPatientAppointments();
+  //   } else if (userController.user.value.id.isEmpty) {
+  //     ever(userController.user, (callback) {
+  //       if (userController.user.value.id.isNotEmpty &&
+  //           userController.user.value.role == AppRole.patient) {
+  //         fetchPatientAppointments();
+  //       }
+  //     });
+  //   }
+  // }
 
   Future<void> bookAppointment(
       {required DoctorModel doctor, required String type}) async {

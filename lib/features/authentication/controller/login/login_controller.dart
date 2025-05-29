@@ -76,8 +76,12 @@ class LoginController extends GetxController {
 
       TFullScreenLoader.stopLoading();
 
-      AuthenticationRepository.instance
-          .screenRedirect(userController.user.value.role);
+      if (userCredentials.user != null) {
+        await userController.fetchUserRecord();
+
+        AuthenticationRepository.instance
+            .screenRedirect(userController.user.value.role);
+      }
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
