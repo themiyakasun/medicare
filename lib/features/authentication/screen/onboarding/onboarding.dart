@@ -14,56 +14,104 @@ class OnBoardingScreen extends StatelessWidget {
     final controller = Get.put(OnBoardingController());
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              // Logo
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: TSizes.spaceBtwSections),
-                child: Row(
-                  children: [
-                    Image(
-                      image: AssetImage(TImages.logo),
-                      width: 300,
-                      height: 100,
-                    ),
-                  ],
-                ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            // Background decorations (circles on left - adjusted positions)
+            Positioned(
+              bottom: 100,
+              left: -50,
+              child: Image.asset(
+                'assets/images/on-board/image-2.png', // yellow circle
+                width: 150,
               ),
-              // Text
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: TSizes.spaceBtwSections),
-                child: SizedBox(
-                  width: 300,
-                  child: Text(
-                    'Treate more patients, generate more sales remotely',
-                    style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Positioned(
+              bottom: 160,
+              left: 10,
+              child: Image.asset(
+                'assets/images/on-board/image-3.png', // blue circle
+                width: 220,
+              ),
+            ),
+            Positioned(
+              bottom: 240,
+              left: 80,
+              child: Image.asset(
+                'assets/images/on-board/image-4.png', // light blue circle
+                width: 180,
+              ),
+            ),
+
+            // Main vertical content
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: TSizes.spaceBtwSections,
+                vertical: TSizes.spaceBtwSections,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Logo
+                  Image.asset(
+                    TImages.logo,
+                    width: 150,
                   ),
-                ),
-              ),
-              const SizedBox(height: TSizes.gridViewSpacing),
-              // Button
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: TSizes.spaceBtwSections),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: ElevatedButton.icon(
-                    onPressed: () => controller.nextPage(),
-                    icon: Icon(
-                      Icons.add,
-                      color: TColors.neutralsWhite,
-                    ),
-                    style: TAppTheme.doctorElevatedButtonTheme.style,
-                    label: Text('Continue'),
+                  const SizedBox(height: 20),
+
+                  // Headline - adjusted line height and spacing
+                  Text(
+                    'Treat more\npatients, generate\nmore sales remotely',
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          color: TColors.dartPurpleNeutral,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 32.0,
+                          height: 1.2, // Better line spacing
+                        ),
                   ),
+                  const SizedBox(height: 25),
+
+                  // Button - slightly adjusted styling
+                  SizedBox(
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      onPressed: () => controller.nextPage(),
+                      icon: const Icon(Icons.add,
+                          color: TColors.neutralsWhite, size: 20),
+                      label: const Text(
+                        'Continue',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      style:
+                          TAppTheme.doctorElevatedButtonTheme.style?.copyWith(
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Doctor Image - positioned bottom right with better sizing
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: ClipRect(
+                child: Image.asset(
+                  'assets/images/on-board/image-1.png',
+                  width: 350,
+                  height: 400,
+                  fit: BoxFit.cover,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
